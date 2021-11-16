@@ -15,11 +15,31 @@ const (
 	ARCANE_BRILLIANCE_VALUE      = 40
 	PRAYER_OF_FORTITUDE_VALUE    = 79
 	BLOOD_PACT_VALUE             = 66
+
+	SUNDER_ARMOR_ARMOR_VALUE          = 520
+	EXPOSED_ARMOR_BASE_VALUE          = 2050.0
+	CURSE_OF_RECKLESSNESS_ARMOR_VALUE = 800
+	FAERI_FIRE_ARMOR_VALUE            = 610
+	IMP_FAERI_FIRE_HIT_VALUE          = 0.03
 )
 
 type Buff struct {
-	Active   bool
+	Active bool
+}
+
+type BuffWithImproved struct {
+	Buff
 	Improved bool
+}
+
+type BuffWithUptime struct {
+	Buff
+	Uptime float64
+}
+
+type BuffWithUptimeAndValue struct {
+	BuffWithUptime
+	Value int
 }
 
 type TargetDebuffs struct {
@@ -27,11 +47,12 @@ type TargetDebuffs struct {
 	JudgementOfWisdom      Buff
 	JudgementOfTheCrusader Buff
 
-	CurseOfElements     Buff
+	CurseOfElements     BuffWithImproved
+	ExposeWeakness      BuffWithUptimeAndValue
 	SunderArmor         Buff
-	ImprovedExposeArmor Buff
+	ExposeArmor         BuffWithImproved
 	CurseOfRecklessness Buff
-	FaeriFire           Buff
+	FaeriFire           BuffWithImproved
 	Misery              Buff
 	BloodFrenzy         Buff
 }
@@ -39,19 +60,19 @@ type TargetDebuffs struct {
 type PlayerBuffs struct {
 	// Paladin
 	BlessingOfKings  Buff
-	BlessingOfMight  Buff
-	BlessingOfWisdom Buff
+	BlessingOfMight  BuffWithImproved
+	BlessingOfWisdom BuffWithImproved
 
 	// Warrior
-	BattleShout Buff
+	BattleShout BuffWithImproved
 
 	// Hunter
-	TrueShot        Buff
-	LeaderOfThePack Buff
+	TrueShot             Buff
+	FerociousInspiration BuffWithUptimeAndValue
 
 	// Shaman
-	GraceOfAirTotem      Buff
-	StrengthOfEarthTotem Buff
+	GraceOfAirTotem      BuffWithImproved
+	StrengthOfEarthTotem BuffWithImproved
 	ManaSpringTotem      Buff
 	WindfuryTotem        Buff
 
@@ -59,21 +80,41 @@ type PlayerBuffs struct {
 	ArcaneBrilliance Buff
 
 	// Druid
-	GiftOfTheWild Buff
+	GiftOfTheWild   BuffWithImproved
+	LeaderOfThePack BuffWithImproved
 
 	// Shaman
-	// TODO Implement bloodlust
 	Bloodlust int
 
-	// Leatherworkings
-	Drums Buff
-
 	// Priest
-	PrayerOfFortitude Buff
+	PrayerOfFortitude BuffWithImproved
 
 	// Warlock
-	BloodPact Buff
+	BloodPact BuffWithImproved
 
 	// Jewelcrafting
 	BraidedEterniumChain Buff
+}
+
+func (t TargetDebuffs) EffectiveArmor(startingArmor float64) float64 {
+	armor := startingArmor
+	if t.SunderArmor.Active {
+		armor -= 5 * SUNDER_ARMOR_ARMOR_VALUE
+	}
+	if t.ExposeArmor.Active {
+		exposed := EXPOSED_ARMOR_BASE_VALUE
+		if t.ExposeArmor.Improved {
+			exposed = exposed * 1.5
+		}
+		armor -= exposed
+	}
+	if t.CurseOfRecklessness.Active {
+		armor -= CURSE_OF_RECKLESSNESS_ARMOR_VALUE
+	}
+	if t.FaeriFire.Active {
+		armor -= FAERI_FIRE_ARMOR_VALUE
+	}
+
+	return armor
+
 }

@@ -141,3 +141,23 @@ func (eq Equipment) HasBeastLordFourSet() bool {
 	}
 	return numBeastLordItems >= 4
 }
+
+func (eq Equipment) HasT5FourSet() bool {
+	numPieces := 0
+	if eq.Chest.Name == "rift stalker hauberk" {
+		numPieces++
+	}
+	if eq.Gloves.Name == "rift stalker gauntlets" {
+		numPieces++
+	}
+	if eq.Helm.Name == "rift stalker helm" {
+		numPieces++
+	}
+	if eq.Pants.Name == "rift stalker leggings" {
+		numPieces++
+	}
+	if eq.Shoulders.Name == "rift stalker mantle" {
+		numPieces++
+	}
+	return numPieces >= 4
+}

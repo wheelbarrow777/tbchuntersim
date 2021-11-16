@@ -106,8 +106,11 @@ func TestPlayer_CritMissDmg(t *testing.T) {
 					},
 				},
 				PlayerBuffs: PlayerBuffs{
-					LeaderOfThePack: Buff{
-						Active: true,
+					LeaderOfThePack: BuffWithImproved{
+						Buff: Buff{
+							Active: true,
+						},
+						Improved: false,
 					},
 				},
 			},
@@ -255,57 +258,69 @@ func TestNewPlayerBuffsFull(t *testing.T) {
 	c := buildBasicTestConfig()
 	c.PlayerBuffs = PlayerBuffs{
 		BlessingOfKings: Buff{
-			Active:   true,
+			Active: true,
+		},
+		BlessingOfMight: BuffWithImproved{
+			Buff: Buff{
+				Active: true,
+			},
 			Improved: true,
 		},
-		BlessingOfMight: Buff{
-			Active:   true,
+		BlessingOfWisdom: BuffWithImproved{
+			Buff: Buff{
+				Active: true,
+			},
 			Improved: true,
 		},
-		BlessingOfWisdom: Buff{
-			Active:   true,
-			Improved: true,
-		},
-		BattleShout: Buff{
-			Active:   true,
+		BattleShout: BuffWithImproved{
+			Buff: Buff{
+				Active: true,
+			},
 			Improved: true,
 		},
 		TrueShot: Buff{
-			Active:   true,
+			Active: true,
+		},
+		LeaderOfThePack: BuffWithImproved{
+			Buff: Buff{
+				Active: true,
+			},
 			Improved: true,
 		},
-		LeaderOfThePack: Buff{
-			Active:   true,
+		GraceOfAirTotem: BuffWithImproved{
+			Buff: Buff{
+				Active: false,
+			},
 			Improved: true,
 		},
-		GraceOfAirTotem: Buff{
-			Active:   false,
-			Improved: true,
-		},
-		StrengthOfEarthTotem: Buff{
-			Active:   true,
+		StrengthOfEarthTotem: BuffWithImproved{
+			Buff: Buff{
+				Active: true,
+			},
 			Improved: true,
 		},
 		ManaSpringTotem: Buff{
-			Active:   false,
-			Improved: true,
+
+			Active: false,
 		},
 		ArcaneBrilliance: Buff{
-			Active:   true,
+			Active: true,
+		},
+		GiftOfTheWild: BuffWithImproved{
+			Buff: Buff{
+				Active: true,
+			},
 			Improved: true,
 		},
-		GiftOfTheWild: Buff{
-			Active:   true,
-			Improved: true,
-		},
-		PrayerOfFortitude: Buff{
-			Active:   true,
+		PrayerOfFortitude: BuffWithImproved{
+			Buff: Buff{
+				Active: true,
+			},
 			Improved: true,
 		},
 
 		BraidedEterniumChain: Buff{
-			Active:   true,
-			Improved: true,
+			Active: true,
 		},
 	}
 
@@ -346,57 +361,67 @@ func TestNewPlayerBuffsConsumesFull(t *testing.T) {
 	c := buildBasicTestConfig()
 	c.PlayerBuffs = PlayerBuffs{
 		BlessingOfKings: Buff{
-			Active:   true,
+			Active: true,
+		},
+		BlessingOfMight: BuffWithImproved{
+			Buff: Buff{
+				Active: true,
+			},
 			Improved: true,
 		},
-		BlessingOfMight: Buff{
-			Active:   true,
+		BlessingOfWisdom: BuffWithImproved{
+			Buff: Buff{
+				Active: true,
+			},
 			Improved: true,
 		},
-		BlessingOfWisdom: Buff{
-			Active:   true,
-			Improved: true,
-		},
-		BattleShout: Buff{
-			Active:   true,
+		BattleShout: BuffWithImproved{
+			Buff: Buff{
+				Active: true,
+			},
 			Improved: true,
 		},
 		TrueShot: Buff{
-			Active:   true,
+			Active: true,
+		},
+		LeaderOfThePack: BuffWithImproved{
+			Buff: Buff{
+				Active: true,
+			},
 			Improved: true,
 		},
-		LeaderOfThePack: Buff{
-			Active:   true,
-			Improved: true,
+		GraceOfAirTotem: BuffWithImproved{
+			Buff: Buff{
+				Active: false,
+			}, Improved: true,
 		},
-		GraceOfAirTotem: Buff{
-			Active:   false,
-			Improved: true,
-		},
-		StrengthOfEarthTotem: Buff{
-			Active:   true,
+		StrengthOfEarthTotem: BuffWithImproved{
+			Buff: Buff{
+				Active: true,
+			},
 			Improved: true,
 		},
 		ManaSpringTotem: Buff{
-			Active:   false,
-			Improved: true,
+			Active: false,
 		},
 		ArcaneBrilliance: Buff{
-			Active:   true,
+			Active: true,
+		},
+		GiftOfTheWild: BuffWithImproved{
+			Buff: Buff{
+				Active: true,
+			},
 			Improved: true,
 		},
-		GiftOfTheWild: Buff{
-			Active:   true,
-			Improved: true,
-		},
-		PrayerOfFortitude: Buff{
-			Active:   true,
+		PrayerOfFortitude: BuffWithImproved{
+			Buff: Buff{
+				Active: true,
+			},
 			Improved: true,
 		},
 
 		BraidedEterniumChain: Buff{
-			Active:   true,
-			Improved: true,
+			Active: true,
 		},
 	}
 	c.StaticConsumables = consumables.StaticConsumables{
@@ -416,28 +441,28 @@ func TestNewPlayerBuffsConsumesFull(t *testing.T) {
 		t.Errorf("expected strength = 73, got %d", p.strength)
 	}
 	if p.agility != 842 {
-		t.Errorf("expected agility = 673, got %d", p.agility)
+		t.Errorf("expected agility = 842, got %d", p.agility)
 	}
 	if p.stamina != 661 {
-		t.Errorf("expected stamina = 481, got %d", p.stamina)
+		t.Errorf("expected stamina = 661, got %d", p.stamina)
 	}
 	if p.intellect != 275 {
-		t.Errorf("expected intellect = 192, got %d", p.intellect)
+		t.Errorf("expected intellect = 275, got %d", p.intellect)
 	}
 	if p.spirit != 143 {
-		t.Errorf("expected spirit = 92, got %d", p.spirit)
+		t.Errorf("expected spirit = 143, got %d", p.spirit)
 	}
 	if p.meleeAttackPower != 3025 {
-		t.Errorf("expected meleeAttackPower = 2353, got %d", p.rangedAttackPower)
+		t.Errorf("expected meleeAttackPower = 3025, got %d", p.rangedAttackPower)
 	}
 	if p.rangedAttackPower != 2580 {
-		t.Errorf("expected rangedAttackPower = 2353, got %d", p.rangedAttackPower)
+		t.Errorf("expected rangedAttackPower = 2580, got %d", p.rangedAttackPower)
 	}
 	if p.hitRating != 138 {
 		t.Errorf("expected hitRating = 138, got %d", p.hitRating)
 	}
 	if p.critRating != 182 {
-		t.Errorf("expected critRating = 134, got %d", p.critRating)
+		t.Errorf("expected critRating = 182, got %d", p.critRating)
 	}
 	if !util.CompFloat(p.MaxMana, 7228.0, 0.1) {
 		t.Errorf("expected mana = %f, got %f", 7228.0, p.MaxMana)

@@ -6,6 +6,7 @@ import (
 	"math"
 
 	log "github.com/sirupsen/logrus"
+	"github.com/spf13/viper"
 )
 
 type AutoShot struct {
@@ -71,7 +72,10 @@ func (as AutoShot) castTime(p *player.Player) float64 {
 }
 
 func (as AutoShot) calcAvgDamage(p *player.Player) float64 {
-	numIt := 500
+	numIt := viper.GetInt("average-damage-iterations")
+	if numIt == 0 {
+		panic("numIt == 0")
+	}
 	dmgTotal := 0.0
 
 	muteLog = true

@@ -45,6 +45,10 @@ func (p Player) BonusHasteRating() float64 {
 		rating += HASTE_POTION_BONUS
 	}
 
+	if p.Am.TimerModifiers.Drums > 0 {
+		rating += DRUMS_OF_BATTLE_HASTE_BONUS
+	}
+
 	return rating
 }
 

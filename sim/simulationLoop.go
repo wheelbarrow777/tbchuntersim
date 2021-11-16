@@ -3,9 +3,11 @@ package sim
 import (
 	"huntsim/abilities"
 	"huntsim/config"
+	"huntsim/consumables/potions"
 	"huntsim/equipment/trinkets"
 	"huntsim/player"
 	"huntsim/util"
+	"math"
 	"math/rand"
 	"sort"
 	"time"
@@ -17,7 +19,7 @@ type simAbility struct {
 	Ability     abilities.Ability
 	Name        string
 	Weight      float64
-	NumHits     float64
+	NumHits     int
 	TotalDamage float64
 }
 
@@ -31,34 +33,53 @@ func newSimAbility(ability abilities.Ability, name string) simAbility {
 	}
 }
 
-func RunSimulationLoop(opts *config.SimOptions, p player.Player) float64 {
+func RunSimulationLoop(opts config.SimOptions, p player.Player) *LoopResult {
+	rand.Seed(time.Now().UnixMicro())
+
 	var startTime float64 = 0
 	var stopTime float64 = 0
-	var totalDamage float64 = 0
+	//var totalDamage float64 = 0
 	iterationTimes := []float64{0, 0, 0, 0}
 	gcdTracker := []float64{0, 0}
 	var lastHadGCD bool = false // This variable is probably not needed
 	var lastWasHit bool = false
+
+	simRes := LoopResult{
+		Ability: make(map[string]AbilityDetails),
+	}
 
 	// Initiate player
 	abilityPriority := []simAbility{
 		newSimAbility(abilities.NewAutoShot(), "AutoShot"),
 		newSimAbility(abilities.NewSteadyShot(), "SteadyShot"),
 		newSimAbility(abilities.NewTBW(), "The Beast Within"),
-		newSimAbility(trinkets.NewDST(), "DST"), // TODO: Add dynamically based on which trinket is equipped
-		newSimAbility(trinkets.NewBloodlustBrooch(), "Bloodlust Brooch"),
 		newSimAbility(abilities.NewQuickShots(), "Quickshots"),
 		newSimAbility(abilities.NewRapidFire(), "Rapid Fire"),
-		//newSimAbility(abilities.NewBloodlust(1), "Bloodlust"),
+		newSimAbility(abilities.NewBloodlust(p.PlayerBuffs.Bloodlust), "Bloodlust"),
 	}
 
-	rand.Seed(time.Now().UnixMicro())
+	// Add abilities based on items
+	if p.Equipment.TrinketOne.Name == "dragonspine trophy" || p.Equipment.TrinketTwo.Name == "dragonspine trophy" {
+		abilityPriority = append(abilityPriority, newSimAbility(trinkets.NewDST(), "DST"))
+	}
+	if p.Equipment.TrinketOne.Name == "bloodlust brooch" || p.Equipment.TrinketTwo.Name == "bloodlust brooch" {
+		abilityPriority = append(abilityPriority, newSimAbility(trinkets.NewBloodlustBrooch(), "Bloodlust Brooch"))
+	}
+	if p.ActivatedConsumables.LeatherworkingDrums {
+		abilityPriority = append(abilityPriority, newSimAbility(potions.NewLeatherworkingDrums(), "Leatherworking Drums"))
+	}
+
+	// Adjust armor based on debuffs
+	opts.TargetArmor = p.TargetDebuffs.EffectiveArmor(opts.TargetArmor)
 
 	currentIteration := 0
 	for stopTime < opts.SimDuration {
+
+		if p.CurrentMana < 200 {
+			log.WithField("Mana", p.CurrentMana).Warn("Low Mana")
+		}
+
 		if currentIteration != 0 {
-			// TODO CHEAT
-			p.CurrentMana = p.MaxMana
 
 			// Calculate the cooldown of all abilities for this iteration
 			for i, ability := range abilityPriority {
@@ -85,16 +106,40 @@ func RunSimulationLoop(opts *config.SimOptions, p player.Player) float64 {
 		// Perform the first ability (The ability with the highest weight)
 		castResult := abilityPriority[0].Ability.Cast(&p)
 
+		// Calculate the real damage
 		if castResult.IsPhysical {
 			realDamageDealt := util.CalculateReducedArmorDamage(castResult.Damage, opts.TargetArmor)
-			totalDamage += realDamageDealt
+
+			// Apply damage effects
+			if p.TargetDebuffs.BloodFrenzy.Active {
+				realDamageDealt = realDamageDealt * 1.04
+			}
+
+			// Apply ferocius inspiration
+			for i := 0; i < p.PlayerBuffs.FerociousInspiration.Value+1; i++ {
+				dmgModifier := 0.0
+				if i == 0 {
+					// The first check is the player itself. Only apply the benefit if the talent has been selected
+					dmgModifier = 1.0 + 0.01*float64(p.Talents.BM.FerociousInspiration)
+				} else {
+					dmgModifier = 1.03
+				}
+				if util.RollDice(p.PlayerBuffs.FerociousInspiration.Uptime) {
+					realDamageDealt = realDamageDealt * dmgModifier
+				}
+			}
+
 			abilityPriority[0].NumHits++
 			abilityPriority[0].TotalDamage += realDamageDealt
+			simRes.Damage = append(simRes.Damage, realDamageDealt)
 		} else {
 			panic("non physical spells not implemented")
 		}
 
+		simRes.RangedAttackSpeed = append(simRes.RangedAttackSpeed, p.RealSpeed())
+
 		// Calculate the times for the next iteration
+
 		startTime = stopTime + castResult.DelayUntilCast
 		stopTime = startTime + castResult.CastTime
 		iterationTimes = append(iterationTimes, startTime, stopTime)
@@ -110,8 +155,22 @@ func RunSimulationLoop(opts *config.SimOptions, p player.Player) float64 {
 		currentIteration++
 
 		// Reduce the duration of all modifiers
-		//	log.Debugf("Reduced time by %f", stopTime-iterationTimes[len(iterationTimes)-3])
 		p.Am.ReduceModifierTime(stopTime - iterationTimes[len(iterationTimes)-3])
+
+		// Apply MP5
+		if stopTime > 5.0*math.Ceil(iterationTimes[len(iterationTimes)-3]/5.0) {
+			p.ApplyMP5()
+		}
+
+		// Apply JOW
+		if p.TargetDebuffs.JudgementOfWisdom.Active {
+			// Only apply the bonus if the cast was a damaging ability
+			if castResult.Damage > 0 {
+				if util.RollDice(0.5) {
+					p.AddMana(74)
+				}
+			}
+		}
 
 		// Did anything proc?
 		// - Kill Command
@@ -122,25 +181,26 @@ func RunSimulationLoop(opts *config.SimOptions, p player.Player) float64 {
 			}
 		}
 
+		// Log the time and current mana
+		simRes.Time = append(simRes.Time, stopTime)
+		simRes.Mana = append(simRes.Mana, p.CurrentMana)
+
 		log.WithFields(log.Fields{
 			"startTime": startTime,
 			"stopTime":  stopTime,
 			"speed":     p.Equipment.Ranged.Speed / p.TotalHaste(),
 			"mana":      p.CurrentMana,
-		}).Debug("Iteration Complete")
+		}).Trace("Iteration Complete")
 
 	}
 
-	// for _, a := range abilityPriority {
-	// 	if a.Name == "AutoShot" || a.Name == "SteadyShot" {
-	// 		log.WithFields(log.Fields{
-	// 			"Name":         a.Name,
-	// 			"Total Damage": a.TotalDamage,
-	// 			"Num of Hits":  a.NumHits,
-	// 			"Average Hit":  a.TotalDamage / a.NumHits,
-	// 			"Mana":         p.CurrentMana,
-	// 		}).Info("Damage total")
-	// 	}
-	// }
-	return totalDamage / stopTime
+	// Populate the return struct
+	for _, a := range abilityPriority {
+		simRes.Ability[a.Name] = AbilityDetails{
+			TotalDamage: a.TotalDamage,
+			NumHits:     a.NumHits,
+		}
+	}
+
+	return &simRes
 }

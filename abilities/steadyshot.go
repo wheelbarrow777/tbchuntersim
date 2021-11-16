@@ -6,6 +6,7 @@ import (
 	"math"
 
 	log "github.com/sirupsen/logrus"
+	"github.com/spf13/viper"
 )
 
 type SteadyShot struct {
@@ -48,7 +49,11 @@ func (ss SteadyShot) calcDamage(p *player.Player) *CastResult {
 	unmodifiedDamage := (p.Equipment.Ranged.AverageDamage()*2.8/p.Equipment.Ranged.Speed + p.EffectiveAP()*0.2 + 150.0)
 
 	// Is it a crit?
-	if util.RollDice(p.CritChance()) {
+	critChance := p.CritChance()
+	if p.Equipment.HasT5FourSet() {
+		critChance += 0.05
+	}
+	if util.RollDice(critChance) {
 		ret.IsCriticalStrike = true
 		unmodifiedDamage = unmodifiedDamage * p.RangeCritDamageModifier()
 	}
@@ -69,6 +74,7 @@ func (ss *SteadyShot) CalcCooldown(p *player.Player, opts *CalcCooldownOpts) flo
 		gcdOffset := 0.0
 		if opts.LastHadGCD {
 			gcdOffset = opts.GCDTmeRev(0) - opts.ItTimeRev(0)
+			log.Warn("GCD")
 		}
 		ss.CurrentCooldown = math.Max(ss.CurrentCooldown-opts.ItTimeRev(0)-opts.ItTimeRev(2)+gcdOffset, 0)
 	}
@@ -86,7 +92,10 @@ func (ss SteadyShot) Weight(p *player.Player) float64 {
 }
 
 func (ss SteadyShot) calcAvgDamage(p *player.Player) float64 {
-	numIt := 500
+	numIt := viper.GetInt("average-damage-iterations")
+	if numIt == 0 {
+		panic("numIt == 0")
+	}
 	dmgTotal := 0.0
 	for i := 0; i < numIt; i++ {
 		r := ss.calcDamage(p)

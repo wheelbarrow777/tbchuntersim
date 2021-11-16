@@ -111,19 +111,21 @@
         "GuardianElixir": "Elixir of Major Mageblood",
         "AgilityScroll": "Scroll of Agility V",
         "StrengthScroll": "Scroll of Strength V",
-        "UseHastePotion": false,
-        "UseManaPotion": false,
         "PetFood": "",
         "PetScrollAgility": false,
         "PetScrollStrenght": false
     },
+    "ActivatedConsumables": {
+        "LeatherworkingDrums": false,
+        "HastePotion": false,
+        "ManaPotion": false
+    },
     "Buffs": {
         "BlessingOfKings": {
-            "Active": true,
-            "Improved": true
+            "Active": false
         },
         "BlessingOfMight": {
-            "Active": true,
+            "Active": false,
             "Improved": true
         },
         "BlessingOfWisdom": {
@@ -131,49 +133,52 @@
             "Improved": true
         },
         "BattleShout": {
-            "Active": true,
-            "Improved": true
-        },
-        "TrueShotAura": true,
-        "LeaderOfThePack": {
-            "Active": true,
-            "Improved": false
-        },
-        "GraceOfAirTotem": {
-            "Active": true,
-            "Improved": true
-        },
-        "StrengthOfEarthTotem": {
-            "Active": true,
-            "Improved": true
-        },
-        "ManaSpringTotem": {
-            "Active": true,
-            "Improved": true
-        },
-        "ArcaneBrilliance": true,
-        "GiftOfTheWild": {
-            "Active": true,
-            "Improved": true
-        },
-        "BloodLustCount": 0,
-        "LeatherworkingDrums": true,
-        "PrayerOfFortitude": {
-            "Active": true,
-            "Improved": true
-        },
-        "BloodPact": {
             "Active": false,
             "Improved": true
         },
-        "BraidedEterniumChain": true
+        "TrueShotAura": false,
+        "LeaderOfThePack": {
+            "Active": false,
+            "Improved": false
+        },
+        "GraceOfAirTotem": {
+            "Active": false,
+            "Improved": true
+        },
+        "StrengthOfEarthTotem": {
+            "Active": false,
+            "Improved": true
+        },
+        "ManaSpringTotem": {
+            "Active": false
+        },
+        "ArcaneBrilliance": false,
+        "GiftOfTheWild": {
+            "Active": false,
+            "Improved": true
+        },
+        "BloodLustCount": 0,
+        "PrayerOfFortitude": {
+            "Active": false,
+            "Improved": false
+        },
+        "FerociousInspirationCount": {
+            "Uptime": 0.92,
+            "Value": 0
+        },
+        "BloodPact": {
+            "Active": false,
+            "Improved": false
+        },
+        "BraidedEterniumChain": false
     },
     "Talents": {
         "BM": {
-            "SerpentsSwiftness": 5
+            "SerpentsSwiftness": 5,
+            "FerociousInspiration": 3
         },
         "MM": {
-            "TrueshotAura": 1,
+            "TrueshotAura": 0,
             "LethalShots": 5,
             "MortalShots": 5,
             "CarefulAim": 0
@@ -182,8 +187,47 @@
             "KillerInstinct": 0
         }
     },
+    "TargetDebuffs": {
+        "ImprovedHuntersMark": {
+            "Active": false
+        },
+        "JudgementOfWisdom": {
+            "Active": true
+        },
+        "JudgementOfTheCrusader": {
+            "Active": false
+        },
+        "CurseOfElements": {
+            "Active": false
+        },
+        "ExposeWeakness": {
+            "Active": false,
+            "Uptime": 0.92,
+            "Value": 284
+        },
+        "SunderArmor": {
+            "Active": false
+        },
+        "ExposeArmor": {
+            "Active": false,
+            "Improved": false
+        },
+        "CurseOfRecklessness": {
+            "Active": false
+        },
+        "FaeriFire": {
+            "Active": false,
+            "Improved": false
+        },
+        "Misery": {
+            "Active": false
+        },
+        "BloodFrenzy": {
+            "Active": false
+        }
+    },
     "Options": {
-        "SimDuration": 400,
+        "SimDuration": 300,
         "TargetArmor": 8800
     }
 }

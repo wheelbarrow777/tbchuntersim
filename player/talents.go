@@ -1,7 +1,8 @@
 package player
 
 type BM struct {
-	SerpentsSwiftness int
+	SerpentsSwiftness    int
+	FerociousInspiration int
 }
 
 type MM struct {

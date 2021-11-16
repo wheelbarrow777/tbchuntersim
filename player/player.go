@@ -52,9 +52,10 @@ type Player struct {
 
 	Am ActiveModifiers
 
-	PlayerBuffs        PlayerBuffs
-	TargetDebuffs      TargetDebuffs
-	StaticConsumeables consumables.StaticConsumables
+	PlayerBuffs          PlayerBuffs
+	TargetDebuffs        TargetDebuffs
+	StaticConsumeables   consumables.StaticConsumables
+	ActivatedConsumables consumables.ActivatedConsumables
 
 	MaxMana     float64
 	CurrentMana float64
@@ -83,12 +84,13 @@ type Player struct {
 }
 
 type PlayerConfig struct {
-	Race              string
-	Talents           Talents
-	PlayerBuffs       PlayerBuffs
-	TargetDebuffs     TargetDebuffs
-	Equipment         equipment.Equipment
-	StaticConsumables consumables.StaticConsumables
+	Race                 string
+	Talents              Talents
+	PlayerBuffs          PlayerBuffs
+	TargetDebuffs        TargetDebuffs
+	Equipment            equipment.Equipment
+	StaticConsumables    consumables.StaticConsumables
+	ActivatedConsumables consumables.ActivatedConsumables
 }
 
 func (p Player) RangeCritDamageModifier() float64 {
@@ -118,6 +120,9 @@ func (p Player) CritChance() float64 {
 		}
 		crit_supression := 0.048
 		p.critChanceMemoized.value = agilityCrit + critRatingCrit + lethalShotsCrit + leaderOfThePackCrit - 0.0153 - crit_supression // TODO: Figure out these magic numbers
+		if p.TargetDebuffs.JudgementOfTheCrusader.Active {
+			p.critChanceMemoized.value += 0.03
+		}
 		p.critChanceMemoized.memoized = true
 	}
 	return p.critChanceMemoized.value
@@ -125,6 +130,11 @@ func (p Player) CritChance() float64 {
 
 func (p Player) MissChance() float64 {
 	base := 0.92
+
+	if p.TargetDebuffs.FaeriFire.Active && p.TargetDebuffs.FaeriFire.Improved {
+		base += IMP_FAERI_FIRE_HIT_VALUE
+	}
+
 	gear := float64(p.hitRating) / HIT_RATING_RATION / 100
 	hitAdjustment := -0.01
 	return 1 - math.Min(1, base+gear+hitAdjustment)
@@ -140,6 +150,10 @@ func (p Player) EffectiveAP() float64 {
 
 	if p.Am.TimerModifiers.BloodlustBrooch > 0 {
 		base += 278
+	}
+
+	if p.TargetDebuffs.ExposeWeakness.Active {
+		base += p.TargetDebuffs.ExposeWeakness.Uptime * float64(p.TargetDebuffs.ExposeWeakness.Value)
 	}
 
 	return base
@@ -322,20 +336,25 @@ func (p *Player) calculateStats() {
 	// Calculate max mana
 	p.MaxMana = float64(p.Race.Mana) + (float64(p.intellect)-10.0)*15
 	p.CurrentMana = p.MaxMana
+}
 
-	// TODO: REMOVE AFTER DST TEST
-	p.rangedAttackPower -= 40
-	p.rangedAttackPower -= 72
+func (p *Player) ApplyMP5() {
+	p.AddMana(float64(p.mp5))
+}
+
+func (p *Player) AddMana(value float64) {
+	p.CurrentMana = math.Min(p.MaxMana, p.CurrentMana+value)
 
 }
 
 func NewPlayer(config *PlayerConfig) *Player {
 	p := Player{
-		PlayerBuffs:        config.PlayerBuffs,
-		TargetDebuffs:      config.TargetDebuffs,
-		Equipment:          config.Equipment,
-		Talents:            config.Talents,
-		StaticConsumeables: config.StaticConsumables,
+		PlayerBuffs:          config.PlayerBuffs,
+		TargetDebuffs:        config.TargetDebuffs,
+		Equipment:            config.Equipment,
+		Talents:              config.Talents,
+		StaticConsumeables:   config.StaticConsumables,
+		ActivatedConsumables: config.ActivatedConsumables,
 	}
 
 	if strings.ToLower(config.Race) == "orc" {

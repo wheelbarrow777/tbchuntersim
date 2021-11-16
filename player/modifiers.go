@@ -41,6 +41,8 @@ const (
 	HIT_RATING_RATION = 15.76
 
 	AGILITY_TO_CRIT = 40.0
+
+	DRUMS_OF_BATTLE_HASTE_BONUS = 80
 )
 
 func (am *ActiveModifiers) ReduceModifierTime(duration float64) {

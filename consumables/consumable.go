@@ -15,6 +15,12 @@ type StaticConsumables struct {
 	Pet    Pet
 }
 
+type ActivatedConsumables struct {
+	LeatherworkingDrums bool
+	HastePotion         bool
+	ManaPotion          bool
+}
+
 func (sc StaticConsumables) SummedStatsPlayer() equipment.BaseStats {
 	b := equipment.BaseStats{}
 	for _, c := range sc.Player {

@@ -2,6 +2,7 @@ package config
 
 import (
 	"encoding/json"
+	"fmt"
 	"huntsim/consumables"
 	"huntsim/equipment"
 	"huntsim/itemdb"
@@ -55,36 +56,31 @@ type consums struct {
 	GuardianElixir string
 	AgilityScroll  string
 	StrengthScroll string
-	UseHastePotion bool
-	UseManaPotion  bool
 
 	PetFood           string
 	PetScrollAgility  bool
 	PetScrollStrenght bool
 }
-
-type buff struct {
-	Active   bool
-	Improved bool
-}
-
 type buffs struct {
 	BlessingOfKings      player.Buff
-	BlessingOfMight      player.Buff
-	BlessingOfWisdom     player.Buff
-	BattleShout          player.Buff
+	BlessingOfMight      player.BuffWithImproved
+	BlessingOfWisdom     player.BuffWithImproved
+	BattleShout          player.BuffWithImproved
 	TrueShotAura         bool
-	LeaderOfThePack      player.Buff
-	GraceOfAirTotem      player.Buff
-	StrengthOfEarthTotem player.Buff
+	LeaderOfThePack      player.BuffWithImproved
+	GraceOfAirTotem      player.BuffWithImproved
+	StrengthOfEarthTotem player.BuffWithImproved
 	ManaSpringTotem      player.Buff
 	// WindfuryTotem buff // Not supported
-	ArcaneBrilliance     bool
-	GiftOfTheWild        player.Buff
-	BloodLustCount       int
-	LeatherworkingDrums  bool
-	PrayerOfFortitude    player.Buff
-	BloodPact            player.Buff
+	ArcaneBrilliance          bool
+	GiftOfTheWild             player.BuffWithImproved
+	BloodLustCount            int
+	FerociousInspirationCount struct {
+		ExtraHunters int
+		Uptime       float64
+	}
+	PrayerOfFortitude    player.BuffWithImproved
+	BloodPact            player.BuffWithImproved
 	BraidedEterniumChain bool
 }
 
@@ -95,12 +91,14 @@ type SimOptions struct {
 }
 
 type SimulationConfig struct {
-	Race        string
-	Equipment   eq
-	Consumables consums
-	Buffs       buffs
-	Talents     player.Talents
-	Options     SimOptions
+	Race                 string
+	Equipment            eq
+	Consumables          consums
+	ActivatedConsumables consumables.ActivatedConsumables
+	Buffs                buffs
+	TargetDebuffs        player.TargetDebuffs
+	Talents              player.Talents
+	Options              SimOptions
 }
 
 func WriteBaseConfig(filename string) error {
@@ -121,26 +119,34 @@ func WriteBaseConfig(filename string) error {
 	return err
 }
 
-func ReadConfig(filename string) (*player.PlayerConfig, *SimOptions, error) {
+func ReadSimConfig(filename string) (*player.PlayerConfig, SimOptions, error) {
+	var retErr error = nil
+	defer func() {
+		if r := recover(); r != nil {
+			retErr = fmt.Errorf("could not read simulation preset: %s", r)
+		}
+	}()
+
 	f, err := os.Open(filename)
 	if err != nil {
-		return nil, nil, err
+		return nil, SimOptions{}, err
 	}
 	defer f.Close()
 
 	parsedConfig := SimulationConfig{}
 	decoder := json.NewDecoder(f)
 	if err := decoder.Decode(&parsedConfig); err != nil {
-		return nil, nil, err
+		return nil, SimOptions{}, err
 	}
 
 	pConfig := player.PlayerConfig{
-		Race:              strings.ToLower(parsedConfig.Race),
-		Talents:           parsedConfig.Talents,
-		PlayerBuffs:       player.PlayerBuffs{},
-		TargetDebuffs:     player.TargetDebuffs{},
-		Equipment:         equipment.Equipment{},
-		StaticConsumables: consumables.StaticConsumables{},
+		Race:                 strings.ToLower(parsedConfig.Race),
+		Talents:              parsedConfig.Talents,
+		PlayerBuffs:          player.PlayerBuffs{},
+		TargetDebuffs:        parsedConfig.TargetDebuffs,
+		Equipment:            equipment.Equipment{},
+		StaticConsumables:    consumables.StaticConsumables{},
+		ActivatedConsumables: parsedConfig.ActivatedConsumables,
 	}
 
 	// Apply Buffs
@@ -153,12 +159,13 @@ func ReadConfig(filename string) (*player.PlayerConfig, *SimOptions, error) {
 	pConfig.PlayerBuffs.BlessingOfMight = buffs.BlessingOfMight
 	pConfig.PlayerBuffs.BlessingOfWisdom = buffs.BlessingOfWisdom
 	pConfig.PlayerBuffs.BloodPact = buffs.BloodPact
+
+	pConfig.PlayerBuffs.FerociousInspiration.Uptime = buffs.FerociousInspirationCount.Uptime
+	pConfig.PlayerBuffs.FerociousInspiration.Value = buffs.FerociousInspirationCount.ExtraHunters
+
 	pConfig.PlayerBuffs.Bloodlust = buffs.BloodLustCount
 	if buffs.BraidedEterniumChain {
 		pConfig.PlayerBuffs.BraidedEterniumChain.Active = true
-	}
-	if buffs.LeatherworkingDrums {
-		pConfig.PlayerBuffs.Drums.Active = true
 	}
 	pConfig.PlayerBuffs.GiftOfTheWild = buffs.GiftOfTheWild
 	pConfig.PlayerBuffs.GraceOfAirTotem = buffs.GraceOfAirTotem
@@ -263,5 +270,5 @@ func ReadConfig(filename string) (*player.PlayerConfig, *SimOptions, error) {
 		pConfig.Equipment.Ranged.Scope = itemdb.GetScope(parsedConfig.Equipment.Ranged.Scope)
 	}
 
-	return &pConfig, &parsedConfig.Options, nil
+	return &pConfig, parsedConfig.Options, retErr
 }
