@@ -11,7 +11,6 @@ import (
 	"github.com/spf13/viper"
 )
 
-// runCmd represents the sim command
 var runCmd = &cobra.Command{
 	Use:   "run",
 	Short: "Run a simulation",
@@ -55,7 +54,7 @@ func init() {
 
 	runCmd.PersistentFlags().StringP("simulation-preset", "f", "preset.json", "Simulation preset to be ran")
 	runCmd.PersistentFlags().String("charts-folder", "charts/", "Folder to save simulation charts in")
-	runCmd.PersistentFlags().IntP("iterations", "i", 50, "Number of simulation iterations to be run")
+	runCmd.PersistentFlags().IntP("iterations", "i", 100, "Number of simulation iterations to be run")
 	runCmd.PersistentFlags().IntP("simulation-workers", "w", runtime.NumCPU(), "Number of simulation workers to run in parallel")
 	runCmd.PersistentFlags().Int("average-damage-iterations", 50, "Number of iterations used when calculating average damage")
 	runCmd.PersistentFlags().Int("chart-bukcket-size", 10, "The time delta of the average plots")

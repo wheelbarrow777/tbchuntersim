@@ -62,7 +62,7 @@ func (p Player) ArmorPenetrationRatio() float64 {
 
 	amp := eq.ArmorPenetration()
 
-	if p.Am.BeastLordArmorPen > 0 {
+	if p.Am.TimerModifiers.BeastLordArmorPen > 0 {
 		amp += BEAST_LORD_ARMOR_IGNORE
 	}
 

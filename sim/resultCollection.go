@@ -205,6 +205,7 @@ func (col ResultConnection) AbilityBreakdownTable(writer io.Writer) {
 	ssHits := 0
 	asDmg := 0.0
 	asHits := 0
+	kcHits := 0
 	for _, result := range col.results {
 		for name, details := range result.Ability {
 			if name == "SteadyShot" {
@@ -213,6 +214,8 @@ func (col ResultConnection) AbilityBreakdownTable(writer io.Writer) {
 			} else if name == "AutoShot" {
 				asDmg += details.TotalDamage
 				asHits += details.NumHits
+			} else if name == "Kill Command" {
+				kcHits += details.NumHits
 			}
 		}
 	}

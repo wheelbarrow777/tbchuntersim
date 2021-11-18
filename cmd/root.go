@@ -17,9 +17,6 @@ var rootCmd = &cobra.Command{
 	Use:   "huntsim",
 	Short: "A simulator for TBC Hunters",
 	Long:  `A simualtor for TBC Hunters`,
-	// Uncomment the following line if your bare application
-	// has an action associated with it:
-	// Run: func(cmd *cobra.Command, args []string) { },
 }
 
 func Execute() {

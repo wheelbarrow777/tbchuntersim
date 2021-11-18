@@ -15,6 +15,8 @@ type timerModifier struct {
 	HastePotion float64
 	Drums       float64
 
+	BeastLordArmorPen float64
+
 	// Trinkets
 	DST             float64
 	BloodlustBrooch float64
@@ -22,8 +24,6 @@ type timerModifier struct {
 
 type ActiveModifiers struct {
 	TimerModifiers timerModifier
-
-	BeastLordArmorPen float64
 }
 
 const (

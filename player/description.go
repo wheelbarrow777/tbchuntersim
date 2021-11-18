@@ -3,6 +3,7 @@ package player
 import (
 	"fmt"
 	"io"
+	"strings"
 
 	"github.com/olekukonko/tablewriter"
 )
@@ -58,11 +59,11 @@ func (p Player) renderBuffsCard(t io.Writer) {
 		{"Blood Pact", fmt.Sprintf("%t", p.PlayerBuffs.BloodPact.Active)},
 		{"", ""},
 		{"Braided Eternium Chain", fmt.Sprintf("%t", p.PlayerBuffs.BraidedEterniumChain.Active)},
-		{"Ferocious Inspiration", fmt.Sprintf("%t, n=%d, uptime=%f", p.PlayerBuffs.FerociousInspiration.Active, p.PlayerBuffs.FerociousInspiration.Value, p.PlayerBuffs.FerociousInspiration.Uptime)},
+		{"Ferocious Inspiration", fmt.Sprintf("%t, n=%d, uptime=%f", p.PlayerBuffs.FerociousInspiration.Value > 0, p.PlayerBuffs.FerociousInspiration.Value, p.PlayerBuffs.FerociousInspiration.Uptime)},
 	}
 
 	for _, row := range buffData {
-		if row[1] == "true" || (row[0] == "Bloodlust" && p.PlayerBuffs.Bloodlust > 0) {
+		if strings.Contains(row[1], "true") || (row[0] == "Bloodlust" && p.PlayerBuffs.Bloodlust > 0) {
 			buffTable.Rich(row, []tablewriter.Colors{nil, {tablewriter.Normal, tablewriter.FgGreenColor}})
 		} else {
 			buffTable.Rich(row, []tablewriter.Colors{nil, {tablewriter.Normal, tablewriter.FgRedColor}})

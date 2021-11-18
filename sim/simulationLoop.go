@@ -41,8 +41,10 @@ func RunSimulationLoop(opts config.SimOptions, p player.Player) *LoopResult {
 	//var totalDamage float64 = 0
 	iterationTimes := []float64{0, 0, 0, 0}
 	gcdTracker := []float64{0, 0}
+
 	var lastHadGCD bool = false // This variable is probably not needed
 	var lastWasHit bool = false
+	var lastWasCrit bool = false
 
 	simRes := LoopResult{
 		Ability: make(map[string]AbilityDetails),
@@ -56,6 +58,7 @@ func RunSimulationLoop(opts config.SimOptions, p player.Player) *LoopResult {
 		newSimAbility(abilities.NewQuickShots(), "Quickshots"),
 		newSimAbility(abilities.NewRapidFire(), "Rapid Fire"),
 		newSimAbility(abilities.NewBloodlust(p.PlayerBuffs.Bloodlust), "Bloodlust"),
+		newSimAbility(abilities.NewKillCommand(), "Kill Command"),
 	}
 
 	// Add abilities based on items
@@ -68,6 +71,12 @@ func RunSimulationLoop(opts config.SimOptions, p player.Player) *LoopResult {
 	if p.ActivatedConsumables.LeatherworkingDrums {
 		abilityPriority = append(abilityPriority, newSimAbility(potions.NewLeatherworkingDrums(), "Leatherworking Drums"))
 	}
+	if p.ActivatedConsumables.HastePotion {
+		abilityPriority = append(abilityPriority, newSimAbility(potions.NewHastePotion(), "Haste Potion"))
+	}
+	if p.ActivatedConsumables.ManaPotion {
+		abilityPriority = append(abilityPriority, newSimAbility(potions.NewSuperManaPotion(), "Super Mana Potion"))
+	}
 
 	// Adjust armor based on debuffs
 	opts.TargetArmor = p.TargetDebuffs.EffectiveArmor(opts.TargetArmor)
@@ -75,9 +84,9 @@ func RunSimulationLoop(opts config.SimOptions, p player.Player) *LoopResult {
 	currentIteration := 0
 	for stopTime < opts.SimDuration {
 
-		if p.CurrentMana < 200 {
-			log.WithField("Mana", p.CurrentMana).Warn("Low Mana")
-		}
+		// if p.CurrentMana < 200 {
+		// 	util.NotifyLowMana()
+		// }
 
 		if currentIteration != 0 {
 
@@ -89,6 +98,7 @@ func RunSimulationLoop(opts config.SimOptions, p player.Player) *LoopResult {
 					GCDTimes:       gcdTracker,
 					LastHadGCD:     lastHadGCD,
 					LastWasAHit:    lastWasHit,
+					LastWasACrit:   lastWasCrit,
 				})
 			}
 
@@ -152,6 +162,7 @@ func RunSimulationLoop(opts config.SimOptions, p player.Player) *LoopResult {
 		}
 		lastHadGCD = castResult.OnGCD
 		lastWasHit = !castResult.IsMiss
+		lastWasCrit = castResult.IsCriticalStrike
 		currentIteration++
 
 		// Reduce the duration of all modifiers
@@ -169,15 +180,6 @@ func RunSimulationLoop(opts config.SimOptions, p player.Player) *LoopResult {
 				if util.RollDice(0.5) {
 					p.AddMana(74)
 				}
-			}
-		}
-
-		// Did anything proc?
-		// - Kill Command
-		if castResult.IsCriticalStrike {
-			// Activate kill command
-			if p.Equipment.HasBeastLordFourSet() {
-				p.Am.BeastLordArmorPen = 15.0
 			}
 		}
 

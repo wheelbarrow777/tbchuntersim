@@ -119,8 +119,7 @@ func WriteBaseConfig(filename string) error {
 	return err
 }
 
-func ReadSimConfig(filename string) (*player.PlayerConfig, SimOptions, error) {
-	var retErr error = nil
+func ReadSimConfig(filename string) (pConfig *player.PlayerConfig, simOpts SimOptions, retErr error) {
 	defer func() {
 		if r := recover(); r != nil {
 			retErr = fmt.Errorf("could not read simulation preset: %s", r)
@@ -139,7 +138,7 @@ func ReadSimConfig(filename string) (*player.PlayerConfig, SimOptions, error) {
 		return nil, SimOptions{}, err
 	}
 
-	pConfig := player.PlayerConfig{
+	pConfig = &player.PlayerConfig{
 		Race:                 strings.ToLower(parsedConfig.Race),
 		Talents:              parsedConfig.Talents,
 		PlayerBuffs:          player.PlayerBuffs{},
@@ -270,5 +269,6 @@ func ReadSimConfig(filename string) (*player.PlayerConfig, SimOptions, error) {
 		pConfig.Equipment.Ranged.Scope = itemdb.GetScope(parsedConfig.Equipment.Ranged.Scope)
 	}
 
-	return &pConfig, parsedConfig.Options, retErr
+	fmt.Println("Returning")
+	return pConfig, parsedConfig.Options, retErr
 }
