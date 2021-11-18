@@ -30,9 +30,6 @@ const (
 	HASTE_RATING_RATIO    = 15.77
 	HUNTERS_MARK_AP_BONUS = 440
 
-	// TODO: Make avaiable as a setting
-	HUNTERS_IN_RAID = 4
-
 	BEAST_LORD_ARMOR_IGNORE = 600
 	DST_HASTE_BONUS         = 325
 	HASTE_POTION_BONUS      = 400

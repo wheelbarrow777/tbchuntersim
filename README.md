@@ -136,6 +136,14 @@ There might be many reasons for that, but some are:
 - This simulator does not take latency into account
 - There is a bug somewhere
 
+In general, expect this sim to give about **4%** higher numbers. See the table below for a comparison between the two sims with different buffs enabled. 
+
+|              | No Buff | Paladin  | LoTP     | Grace    | GOTW     | Bloodlust | Drums    | JC Neck  | Judgement Crusader | Expose Weakness | Sunder Armor | Improved Expose Armor | Curse of Recklessness | Faeri Fire Base | Faeri Fire Improved | Ferocius Inspiration | Haste Potion |
+| ------------ | ------- | -------- | -------- | -------- | -------- | --------- | -------- | -------- | ------------------ | --------------- | ------------ | --------------------- | --------------------- | --------------- | ------------------- | -------------------- | ------------ |
+| Sixx         | 772     | 845      | 811      | 804      | 779      | 804       | 788      | 782      | 795                | 817             | 892          | 918                   | 805                   | 797             | 799                 | 837                  | 818          |
+| TBCHunterSim | 802     | 881      | 843      | 837      | 812      | 840       | 814      | 813      | 827                | 846             | 929          | 959                   | 839                   | 830             | 830                 | 870                  | 858          |
+| Diff         | 1,03886 | 1,042604 | 1,039457 | 1,041045 | 1,042362 | 1,044776  | 1,032995 | 1,039642 | 1,040252           | 1,035496        | 1,04148      | 1,044662              | 1,042236              | 1,041405        | 1,038798            | 1,039427             | 1,0489       |
+
 ## Roadmap
 
 - [ ] Add Pet DPS

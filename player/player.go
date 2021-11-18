@@ -283,9 +283,6 @@ func (p *Player) calculateStats() {
 		critRating += 28
 	}
 
-	// Debuffs
-	// TODO
-
 	// Consumables
 	sumCons := p.StaticConsumeables.SummedStatsPlayer()
 	agility += float64(sumCons.Agility)
