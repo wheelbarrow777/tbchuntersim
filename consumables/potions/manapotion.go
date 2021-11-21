@@ -1,10 +1,10 @@
 package potions
 
 import (
-	"huntsim/abilities"
-	"huntsim/player"
 	"math"
 	"math/rand"
+	"tbchuntersim/abilities"
+	"tbchuntersim/player"
 
 	log "github.com/sirupsen/logrus"
 )

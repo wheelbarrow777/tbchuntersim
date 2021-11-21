@@ -1,7 +1,7 @@
 package main
 
 import (
-	"huntsim/cmd"
+	"tbchuntersim/cmd"
 )
 
 func main() {

@@ -2,8 +2,8 @@ package itemdb
 
 import (
 	"fmt"
-	eq "huntsim/equipment"
 	"strings"
+	eq "tbchuntersim/equipment"
 )
 
 func GetNecklace(name string) eq.ArmorItem {
@@ -25,6 +25,15 @@ func initNecklaces() {
 			Stamina:     18,
 			AttackPower: 42,
 			HitRating:   18,
+		},
+	}
+
+	neck["telonicus's pendant of mayhem"] = eq.ArmorItem{
+		Name: "telonicus's pendant of mayhem",
+		BaseStats: eq.BaseStats{
+			Agility:     27,
+			Stamina:     26,
+			AttackPower: 70,
 		},
 	}
 }

@@ -1,4 +1,4 @@
-module huntsim
+module tbchuntersim
 
 go 1.17
 

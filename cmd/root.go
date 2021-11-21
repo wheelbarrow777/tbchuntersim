@@ -14,7 +14,7 @@ import (
 var cfgFile string
 
 var rootCmd = &cobra.Command{
-	Use:   "huntsim",
+	Use:   "tbchuntersim",
 	Short: "A simulator for TBC Hunters",
 	Long:  `A simualtor for TBC Hunters`,
 }

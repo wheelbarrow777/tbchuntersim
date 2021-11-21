@@ -1,6 +1,6 @@
 package abilities
 
-import "huntsim/player"
+import "tbchuntersim/player"
 
 type CalcCooldownOpts struct {
 	CastLast     bool

@@ -2,8 +2,8 @@ package itemdb
 
 import (
 	"fmt"
-	eq "huntsim/equipment"
 	"strings"
+	eq "tbchuntersim/equipment"
 )
 
 func GetMeleeWeapon(name string) eq.Weapon {
@@ -68,6 +68,36 @@ func initWeapons() {
 		IsTwoHanded: false,
 	}
 
+	meleeWeapons["talon of the phoenix"] = eq.Weapon{
+		DamageMin:   182,
+		DamageMax:   339,
+		Speed:       2.7,
+		IsTwoHanded: false,
+		ArmorItem: eq.ArmorItem{
+			Name: "talon of the phoenix",
+			BaseStats: eq.BaseStats{
+				HitRating:   15,
+				CritRating:  19,
+				AttackPower: 52,
+			},
+		},
+	}
+
+	meleeWeapons["claw of the phoenix"] = eq.Weapon{
+		DamageMin:   101,
+		DamageMax:   189,
+		Speed:       1.5,
+		IsTwoHanded: false,
+		ArmorItem: eq.ArmorItem{
+			Name: "claw of the phoenix",
+			BaseStats: eq.BaseStats{
+				Agility:     21,
+				Stamina:     30,
+				AttackPower: 40,
+			},
+		},
+	}
+
 	rangedWeapons["sunfury bow of the phoenix"] = eq.RangedWeapon{
 		Weapon: eq.Weapon{
 			ArmorItem: eq.ArmorItem{
@@ -82,6 +112,23 @@ func initWeapons() {
 			Speed:     2.9,
 		},
 		AmmoDPS: 43,
+	}
+
+	rangedWeapons["serpent spine longbow"] = eq.RangedWeapon{
+		Weapon: eq.Weapon{
+			DamageMin:   217,
+			DamageMax:   327,
+			Speed:       3.0,
+			IsTwoHanded: false,
+			ArmorItem: eq.ArmorItem{
+				Name: "serpent spine longbow",
+				BaseStats: eq.BaseStats{
+					Stamina:     17,
+					CritRating:  16,
+					AttackPower: 38,
+				},
+			},
+		},
 	}
 
 	quivers["clefthoof hide quiver"] = eq.Quiver{

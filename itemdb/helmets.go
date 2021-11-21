@@ -2,8 +2,8 @@ package itemdb
 
 import (
 	"fmt"
-	eq "huntsim/equipment"
 	"strings"
+	eq "tbchuntersim/equipment"
 )
 
 func GetHelmet(name string) eq.ArmorItem {

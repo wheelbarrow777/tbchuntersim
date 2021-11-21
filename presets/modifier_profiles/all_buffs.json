@@ -1,0 +1,108 @@
+{
+	"Consumables": {
+		"Food": "Warp Burger",
+		"BattleElixir": "Elixir of Major Agility",
+		"GuardianElixir": "Elixir of Major Mageblood",
+		"AgilityScroll": "Scroll of Agility V",
+		"StrengthScroll": "Scroll of Strength V",
+		"PetFood": "Kibler's Bits",
+		"PetScrollAgility": true,
+		"PetScrollStrenght": true
+	},
+	"ActivatedConsumables": {
+		"LeatherworkingDrums": true,
+		"HastePotion": true,
+		"ManaPotion": false
+	},
+	"TargetDebuffs": {
+		"ImprovedHuntersMark": {
+			"Active": true
+		},
+		"JudgementOfWisdom": {
+			"Active": true
+		},
+		"JudgementOfTheCrusader": {
+			"Active": true
+		},
+		"CurseOfElements": {
+			"Active": true
+		},
+		"ExposeWeakness": {
+			"Active": true,
+			"Uptime": 0.92,
+			"Value": 284
+		},
+		"SunderArmor": {
+			"Active": true
+		},
+		"ExposeArmor": {
+			"Active": true,
+			"Improved": true
+		},
+		"CurseOfRecklessness": {
+			"Active": true
+		},
+		"FaeriFire": {
+			"Active": true,
+			"Improved": true
+		},
+		"Misery": {
+			"Active": true
+		},
+		"BloodFrenzy": {
+			"Active": true
+		}
+	},
+	"Buffs": {
+		"BlessingOfKings": {
+			"Active": true
+		},
+		"BlessingOfMight": {
+			"Active": true,
+			"Improved": true
+		},
+		"BlessingOfWisdom": {
+			"Active": true,
+			"Improved": true
+		},
+		"BattleShout": {
+			"Active": true,
+			"Improved": true
+		},
+		"TrueShotAura": true,
+		"LeaderOfThePack": {
+			"Active": true,
+			"Improved": true
+		},
+		"GraceOfAirTotem": {
+			"Active": true,
+			"Improved": true
+		},
+		"StrengthOfEarthTotem": {
+			"Active": true,
+			"Improved": true
+		},
+		"ManaSpringTotem": {
+			"Active": true
+		},
+		"ArcaneBrilliance": true,
+		"GiftOfTheWild": {
+			"Active": true,
+			"Improved": true
+		},
+		"BloodLustCount": 1,
+		"PrayerOfFortitude": {
+			"Active": true,
+			"Improved": true
+		},
+		"FerociousInspirationCount": {
+			"Uptime": 0.92,
+			"ExtraHunters": 1
+		},
+		"BloodPact": {
+			"Active": true,
+			"Improved": true
+		},
+		"BraidedEterniumChain": true
+	}
+}

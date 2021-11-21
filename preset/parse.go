@@ -1,142 +1,21 @@
-package config
+package preset
 
 import (
-	"encoding/json"
 	"fmt"
-	"huntsim/consumables"
-	"huntsim/equipment"
-	"huntsim/itemdb"
-	"huntsim/player"
-	"os"
 	"reflect"
 	"strings"
+	"tbchuntersim/consumables"
+	"tbchuntersim/equipment"
+	"tbchuntersim/itemdb"
+	"tbchuntersim/player"
 )
 
-type itemBase struct {
-	Name    string
-	Gems    []string
-	Enchant string
-}
-
-type weapon struct {
-	itemBase
-	Oil string
-}
-
-type rangedWeapon struct {
-	itemBase
-	Scope string
-}
-
-type eq struct {
-	Helm       itemBase
-	Neck       itemBase
-	Shoulders  itemBase
-	Cloak      itemBase
-	Chest      itemBase
-	Bracers    itemBase
-	Gloves     itemBase
-	Belt       itemBase
-	Pants      itemBase
-	Boots      itemBase
-	RingOne    itemBase
-	RingTwo    itemBase
-	TrinketOne itemBase
-	TrinketTwo itemBase
-	MainHand   weapon
-	OffHand    weapon
-	Ranged     rangedWeapon
-	Quiver     string
-	AmmoDPS    int
-}
-
-type consums struct {
-	Food           string
-	BattleElixir   string
-	GuardianElixir string
-	AgilityScroll  string
-	StrengthScroll string
-
-	PetFood           string
-	PetScrollAgility  bool
-	PetScrollStrenght bool
-}
-type buffs struct {
-	BlessingOfKings      player.Buff
-	BlessingOfMight      player.BuffWithImproved
-	BlessingOfWisdom     player.BuffWithImproved
-	BattleShout          player.BuffWithImproved
-	TrueShotAura         bool
-	LeaderOfThePack      player.BuffWithImproved
-	GraceOfAirTotem      player.BuffWithImproved
-	StrengthOfEarthTotem player.BuffWithImproved
-	ManaSpringTotem      player.Buff
-	// WindfuryTotem buff // Not supported
-	ArcaneBrilliance          bool
-	GiftOfTheWild             player.BuffWithImproved
-	BloodLustCount            int
-	FerociousInspirationCount struct {
-		ExtraHunters int
-		Uptime       float64
-	}
-	PrayerOfFortitude    player.BuffWithImproved
-	BloodPact            player.BuffWithImproved
-	BraidedEterniumChain bool
-}
-
-type SimOptions struct {
-	SimDuration float64
-	Latency     float64
-	TargetArmor float64
-}
-
-type SimulationConfig struct {
-	Race                 string
-	Equipment            eq
-	Consumables          consums
-	ActivatedConsumables consumables.ActivatedConsumables
-	Buffs                buffs
-	TargetDebuffs        player.TargetDebuffs
-	Talents              player.Talents
-	Options              SimOptions
-}
-
-func WriteBaseConfig(filename string) error {
-	base := SimulationConfig{}
-	d, err := json.Marshal(base)
-	if err != nil {
-		return err
-	}
-
-	f, err := os.Create(filename)
-	if err != nil {
-		return err
-	}
-	defer f.Close()
-
-	_, err = f.Write(d)
-
-	return err
-}
-
-func ReadSimConfig(filename string) (pConfig *player.PlayerConfig, simOpts SimOptions, retErr error) {
+func (parsedConfig SimulationPreset) Parse() (pConfig *player.PlayerConfig, simOpts SimOptions, retErr error) {
 	defer func() {
 		if r := recover(); r != nil {
 			retErr = fmt.Errorf("could not read simulation preset: %s", r)
 		}
 	}()
-
-	f, err := os.Open(filename)
-	if err != nil {
-		return nil, SimOptions{}, err
-	}
-	defer f.Close()
-
-	parsedConfig := SimulationConfig{}
-	decoder := json.NewDecoder(f)
-	if err := decoder.Decode(&parsedConfig); err != nil {
-		return nil, SimOptions{}, err
-	}
 
 	pConfig = &player.PlayerConfig{
 		Race:                 strings.ToLower(parsedConfig.Race),
@@ -269,6 +148,5 @@ func ReadSimConfig(filename string) (pConfig *player.PlayerConfig, simOpts SimOp
 		pConfig.Equipment.Ranged.Scope = itemdb.GetScope(parsedConfig.Equipment.Ranged.Scope)
 	}
 
-	fmt.Println("Returning")
 	return pConfig, parsedConfig.Options, retErr
 }

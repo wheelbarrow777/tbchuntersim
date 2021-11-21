@@ -17,7 +17,19 @@
                 "--log-level",
                 "DEBUG",
                 "-f",
-                "myfile.json"
+                "presets/p2_bm_6hit_noweaving.json"
+            ]
+        },
+        {
+            "name": "Debug Generate",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "${workspaceFolder}/main.go",
+            "args": [
+                "preset",
+                "generate",
+                "mynewcoolfile.json",
             ]
         }
     ]

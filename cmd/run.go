@@ -1,9 +1,11 @@
 package cmd
 
 import (
-	"huntsim/config"
-	"huntsim/sim"
+	"io"
+	"os"
 	"runtime"
+	"tbchuntersim/preset"
+	"tbchuntersim/sim"
 
 	log "github.com/sirupsen/logrus"
 
@@ -16,7 +18,21 @@ var runCmd = &cobra.Command{
 	Short: "Run a simulation",
 	Long:  `Run a simulation`,
 	Run: func(cmd *cobra.Command, args []string) {
-		pConfig, simConfig, err := config.ReadSimConfig(viper.GetString("simulation-preset"))
+		// Read the preset file
+		presetFile, err := os.Open(viper.GetString("simulation-preset"))
+		if err != nil {
+			log.WithError(err).Fatal("Could not open the preset file")
+		}
+		defer presetFile.Close()
+
+		presetConfig := preset.SimulationPreset{}
+		_, err = io.Copy(&presetConfig, presetFile)
+		if err != nil {
+			log.WithError(err).WithField("preset file", presetFile).Fatal("The given preset file is invalid")
+		}
+
+		// Parse the preset
+		pConfig, simConfig, err := presetConfig.Parse()
 		if err != nil {
 			log.WithError(err).Fatal("Could not load the simulation preset")
 		}
@@ -52,13 +68,13 @@ var runCmd = &cobra.Command{
 func init() {
 	rootCmd.AddCommand(runCmd)
 
-	runCmd.PersistentFlags().StringP("simulation-preset", "f", "preset.json", "Simulation preset to be ran")
 	runCmd.PersistentFlags().String("charts-folder", "charts/", "Folder to save simulation charts in")
 	runCmd.PersistentFlags().IntP("iterations", "i", 100, "Number of simulation iterations to be run")
 	runCmd.PersistentFlags().IntP("simulation-workers", "w", runtime.NumCPU(), "Number of simulation workers to run in parallel")
 	runCmd.PersistentFlags().Int("average-damage-iterations", 50, "Number of iterations used when calculating average damage")
 	runCmd.PersistentFlags().Int("chart-bukcket-size", 10, "The time delta of the average plots")
 	runCmd.PersistentFlags().Bool("disable-charts", false, "If enabled, no charts will be produced")
+	runCmd.PersistentFlags().StringP("simulation-preset", "f", "preset.json", "Simulation preset to be ran")
 
 	viper.BindPFlag("simulation-preset", runCmd.PersistentFlags().Lookup("simulation-preset"))
 	viper.BindPFlag("iterations", runCmd.PersistentFlags().Lookup("iterations"))

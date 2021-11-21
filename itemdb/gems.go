@@ -2,8 +2,8 @@ package itemdb
 
 import (
 	"fmt"
-	eq "huntsim/equipment"
 	"strings"
+	eq "tbchuntersim/equipment"
 )
 
 func GetGem(name string) eq.Gem {
@@ -43,6 +43,15 @@ func initGems() {
 		},
 	}
 
+	gems["shifting tanzanite"] = eq.Gem{
+		Name:  "shifting tanzanite",
+		Color: eq.Purple,
+		BaseStats: eq.BaseStats{
+			Agility: 5,
+			Stamina: 6,
+		},
+	}
+
 	gems["wicked noble topaz"] = eq.Gem{
 		Name:  "wicked noble topaz",
 		Color: eq.Orange,
@@ -57,6 +66,49 @@ func initGems() {
 		Color: eq.YellowGem,
 		BaseStats: eq.BaseStats{
 			CritRating: 12,
+		},
+	}
+
+	gems["bold ornate ruby"] = eq.Gem{
+		Name:  "bold ornate ruby",
+		Color: eq.RedGem,
+		BaseStats: eq.BaseStats{
+			AttackPower: 20,
+		},
+	}
+
+	gems["wicked pyrestone"] = eq.Gem{
+		Name:  "wicked pyrestone",
+		Color: eq.Orange,
+		BaseStats: eq.BaseStats{
+			CritRating:  5,
+			AttackPower: 10,
+		},
+	}
+
+	gems["smooth lionseye"] = eq.Gem{
+		Name:  "smooth lionseye",
+		Color: eq.YellowGem,
+		BaseStats: eq.BaseStats{
+			CritRating: 10,
+		},
+	}
+
+	gems["glinting fire opal"] = eq.Gem{
+		Name:  "glinting fire opal",
+		Color: eq.Orange,
+		BaseStats: eq.BaseStats{
+			Agility:   5,
+			HitRating: 4,
+		},
+	}
+
+	gems["inscribed ornate topaz"] = eq.Gem{
+		Name:  "inscribed ornate topaz",
+		Color: eq.Orange,
+		BaseStats: eq.BaseStats{
+			AttackPower: 10,
+			CritRating:  5,
 		},
 	}
 

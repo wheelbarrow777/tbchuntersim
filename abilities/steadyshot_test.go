@@ -1,9 +1,9 @@
 package abilities
 
 import (
-	"huntsim/equipment"
-	"huntsim/player"
-	"huntsim/util"
+	"tbchuntersim/equipment"
+	"tbchuntersim/player"
+	"tbchuntersim/util"
 	"testing"
 )
 

@@ -1,9 +1,9 @@
 package abilities
 
 import (
-	"huntsim/player"
-	"huntsim/util"
 	"math"
+	"tbchuntersim/player"
+	"tbchuntersim/util"
 
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/viper"

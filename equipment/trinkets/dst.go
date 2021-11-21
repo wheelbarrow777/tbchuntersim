@@ -1,10 +1,10 @@
 package trinkets
 
 import (
-	"huntsim/abilities"
-	"huntsim/player"
-	"huntsim/util"
 	"math"
+	"tbchuntersim/abilities"
+	"tbchuntersim/player"
+	"tbchuntersim/util"
 
 	log "github.com/sirupsen/logrus"
 )

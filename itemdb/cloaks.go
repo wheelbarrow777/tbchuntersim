@@ -2,8 +2,8 @@ package itemdb
 
 import (
 	"fmt"
-	eq "huntsim/equipment"
 	"strings"
+	eq "tbchuntersim/equipment"
 )
 
 func GetCloak(name string) eq.ArmorItem {
@@ -25,6 +25,16 @@ func initCloaks() {
 			Stamina:     28,
 			CritRating:  24,
 			AttackPower: 56,
+		},
+	}
+
+	cloaks["thalassian wildercloak"] = eq.ArmorItem{
+		Name: "thalassian wildercloak",
+		BaseStats: eq.BaseStats{
+			Armor:       116,
+			Agility:     28,
+			Stamina:     27,
+			AttackPower: 68,
 		},
 	}
 }

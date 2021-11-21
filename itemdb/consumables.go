@@ -2,9 +2,9 @@ package itemdb
 
 import (
 	"fmt"
-	cs "huntsim/consumables"
-	eq "huntsim/equipment"
 	"strings"
+	cs "tbchuntersim/consumables"
+	eq "tbchuntersim/equipment"
 )
 
 func GetConsumable(name string) cs.StaticConsumable {

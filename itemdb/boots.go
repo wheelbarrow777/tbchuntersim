@@ -2,8 +2,8 @@ package itemdb
 
 import (
 	"fmt"
-	eq "huntsim/equipment"
 	"strings"
+	eq "tbchuntersim/equipment"
 )
 
 func GetBoots(name string) eq.ArmorItem {
@@ -34,6 +34,26 @@ func initBoots() {
 			},
 			Bonus: eq.BaseStats{
 				HitRating: 3,
+			},
+		},
+	}
+
+	boots["cobra-lash boots"] = eq.ArmorItem{
+		Name: "cobra-lash boots",
+		BaseStats: eq.BaseStats{
+			Armor:       665,
+			Agility:     33,
+			Stamina:     25,
+			Intellect:   25,
+			AttackPower: 66,
+		},
+		Gems: eq.GemSlots{
+			SlotColors: []eq.GemColor{
+				eq.BlueGem,
+				eq.RedGem,
+			},
+			Bonus: eq.BaseStats{
+				Agility: 3,
 			},
 		},
 	}

@@ -25,5 +25,7 @@
 
 # End of https://www.toptal.com/developers/gitignore/api/go
 
+binaries
+build.sh
 
 charts

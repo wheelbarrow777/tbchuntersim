@@ -20,7 +20,7 @@ You can also install the sim with Go
 Run a simulation
 
 Usage:
-  huntsim run [flags]
+  tbchuntersim run [flags]
 
 Flags:
       --average-damage-iterations int   Number of iterations used when calculating average damage (default 50)
@@ -51,6 +51,26 @@ Top-level, the preset defines
 - Misc Sim Options (Duration of simulation, target armor, etc.)
 
 Some pre-made presets can be found in the [presets folder](/presets)
+
+### Modifying a preset
+A preset can be modifier by either
+
+- A) Opening the JSON in a text-editor and manually changing the values
+- B) Using the `tbchuntersim preset modify` command
+
+When using the `preset modify` command, specify which preset that should be modified and provide flags to specify what should be modified. This can either be flags such as `--enable-all-buffs`, or other presets called *modifier profiles*. A set of modifier profiles can be found in [/presets/modifier_profiles](/presets/modifier_profiles).
+
+**Examples**
+```
+# All Buffs
+tbchunersim preset modify mypreset.json --all-buffs
+
+# All buffs, no consumables
+tbchunersim preset modify mypreset.json --all-buffs --no-consumables
+
+# Set modifier profile all_buffs.json
+tbchuntersim preset modify testpreset.json -p presets/modifier_profiles/all_buffs.json
+```
 
 ## Simulation Result
 When a simulation is finished, the resulting DPS will be presented together with a breakdown of the different abilities. 
@@ -132,6 +152,7 @@ If you're running on Linux, you know what a CLI is.
 
 There might be many reasons for that, but some are:
 
+- TBC Hunter Sim only simulates the hunter DPS, and doesn't take the pet DPS into account. Adding pet DPS is on the roadmap. 
 - The Sixx spreadsheet simulator is in Google Sheets, and its floating points have low resolution and thus lower accuracy. This causes more rounding errors, which are not present in this sim (at least not to the same extent). These rounding errors impacts delay between each ability.
 - This simulator does not take latency into account
 - There is a bug somewhere

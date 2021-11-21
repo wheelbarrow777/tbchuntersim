@@ -2,15 +2,15 @@ package sim
 
 import (
 	"fmt"
-	"huntsim/config"
-	"huntsim/player"
 	"os"
+	"tbchuntersim/player"
+	"tbchuntersim/preset"
 
 	"github.com/schollz/progressbar/v3"
 	log "github.com/sirupsen/logrus"
 )
 
-func worker(simConfig config.SimOptions, jobs <-chan *player.Player, result chan<- *LoopResult) {
+func worker(simConfig preset.SimOptions, jobs <-chan *player.Player, result chan<- *LoopResult) {
 	for j := range jobs {
 		result <- RunSimulationLoop(simConfig, *j)
 	}
@@ -18,7 +18,7 @@ func worker(simConfig config.SimOptions, jobs <-chan *player.Player, result chan
 
 type RunSimulationOpts struct {
 	PlayerConfig     *player.PlayerConfig
-	SimulationConfig config.SimOptions
+	SimulationConfig preset.SimOptions
 	Iterations       int
 	SimWorkers       int
 	ChartTimeDelta   int

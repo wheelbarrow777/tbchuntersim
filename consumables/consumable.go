@@ -1,7 +1,7 @@
 package consumables
 
 import (
-	"huntsim/equipment"
+	"tbchuntersim/equipment"
 )
 
 type StaticConsumable equipment.BaseStats

@@ -1,8 +1,8 @@
 package abilities
 
 import (
-	"huntsim/player"
-	"huntsim/util"
+	"tbchuntersim/player"
+	"tbchuntersim/util"
 )
 
 type MultiShot struct {

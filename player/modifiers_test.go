@@ -1,7 +1,7 @@
 package player
 
 import (
-	"huntsim/util"
+	"tbchuntersim/util"
 	"testing"
 )
 

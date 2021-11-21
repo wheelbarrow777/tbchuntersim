@@ -1,9 +1,9 @@
 package itemdb
 
 import (
-	cs "huntsim/consumables"
-	eq "huntsim/equipment"
 	"reflect"
+	cs "tbchuntersim/consumables"
+	eq "tbchuntersim/equipment"
 )
 
 var (

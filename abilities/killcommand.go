@@ -1,8 +1,8 @@
 package abilities
 
 import (
-	"huntsim/player"
 	"math"
+	"tbchuntersim/player"
 
 	log "github.com/sirupsen/logrus"
 )

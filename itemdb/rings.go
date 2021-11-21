@@ -2,8 +2,8 @@ package itemdb
 
 import (
 	"fmt"
-	eq "huntsim/equipment"
 	"strings"
+	eq "tbchuntersim/equipment"
 )
 
 func GetRing(name string) eq.ArmorItem {
@@ -34,6 +34,16 @@ func initRings() {
 			Agility:     24,
 			Stamina:     27,
 			AttackPower: 54,
+		},
+	}
+
+	rings["band of the ranger-general"] = eq.ArmorItem{
+		Name: "band of the ranger-general",
+		BaseStats: eq.BaseStats{
+			Stamina:     27,
+			HitRating:   18,
+			CritRating:  28,
+			AttackPower: 56,
 		},
 	}
 }

@@ -2,8 +2,8 @@ package itemdb
 
 import (
 	"fmt"
-	eq "huntsim/equipment"
 	"strings"
+	eq "tbchuntersim/equipment"
 )
 
 func GetPants(name string) eq.ArmorItem {
@@ -44,6 +44,17 @@ func initPants() {
 			Bonus: eq.BaseStats{
 				Agility: 4,
 			},
+		},
+	}
+
+	pants["leggings of murderous intent"] = eq.ArmorItem{
+		Name: "leggings of murderous intent",
+		BaseStats: eq.BaseStats{
+			Armor:       380,
+			Agility:     45,
+			Stamina:     31,
+			CritRating:  37,
+			AttackPower: 92,
 		},
 	}
 }

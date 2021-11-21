@@ -1,10 +1,10 @@
 package player
 
 import (
-	"huntsim/consumables"
-	"huntsim/equipment"
-	"huntsim/itemdb"
-	"huntsim/util"
+	"tbchuntersim/consumables"
+	"tbchuntersim/equipment"
+	"tbchuntersim/itemdb"
+	"tbchuntersim/util"
 	"testing"
 )
 

@@ -1,10 +1,10 @@
 package player
 
 import (
-	"huntsim/consumables"
-	"huntsim/equipment"
 	"math"
 	"strings"
+	"tbchuntersim/consumables"
+	"tbchuntersim/equipment"
 )
 
 type Race struct {
@@ -100,6 +100,7 @@ func (p Player) RangeCritDamageModifier() float64 {
 	// Earthstorm Diamond
 	earthstormBonus := 0.0
 	for _, gem := range p.Equipment.Helm.Gems.SlottedGems {
+		// TODO: Add check if the gem is actually activated
 		if gem.Name == "relentless earthstorm diamond" {
 			earthstormBonus = 1.03
 			break

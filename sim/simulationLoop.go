@@ -1,15 +1,15 @@
 package sim
 
 import (
-	"huntsim/abilities"
-	"huntsim/config"
-	"huntsim/consumables/potions"
-	"huntsim/equipment/trinkets"
-	"huntsim/player"
-	"huntsim/util"
 	"math"
 	"math/rand"
 	"sort"
+	"tbchuntersim/abilities"
+	"tbchuntersim/consumables/potions"
+	"tbchuntersim/equipment/trinkets"
+	"tbchuntersim/player"
+	"tbchuntersim/preset"
+	"tbchuntersim/util"
 	"time"
 
 	log "github.com/sirupsen/logrus"
@@ -33,7 +33,7 @@ func newSimAbility(ability abilities.Ability, name string) simAbility {
 	}
 }
 
-func RunSimulationLoop(opts config.SimOptions, p player.Player) *LoopResult {
+func RunSimulationLoop(opts preset.SimOptions, p player.Player) *LoopResult {
 	rand.Seed(time.Now().UnixMicro())
 
 	var startTime float64 = 0

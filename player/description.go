@@ -45,7 +45,7 @@ func (p Player) renderBuffsCard(t io.Writer) {
 		{"Grace Of AirTotem", fmt.Sprintf("%t", p.PlayerBuffs.GraceOfAirTotem.Active)},
 		{"Strength OfEarth Totem", fmt.Sprintf("%t", p.PlayerBuffs.StrengthOfEarthTotem.Active)},
 		{"Mana Spring Totem", fmt.Sprintf("%t", p.PlayerBuffs.ManaSpringTotem.Active)},
-		{"Windfury Totem", fmt.Sprintf("%t", p.PlayerBuffs.WindfuryTotem.Active)},
+		{"Windfury Totem (Not Implemented)", fmt.Sprintf("%t", p.PlayerBuffs.WindfuryTotem.Active)},
 		{"", ""},
 		{"Arcane Brilliance", fmt.Sprintf("%t", p.PlayerBuffs.ArcaneBrilliance.Active)},
 		{"", ""},
