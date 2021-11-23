@@ -44,6 +44,7 @@ func (as AutoShot) Cast(p *player.Player) *CastResult {
 
 	// Is it a miss?
 	if util.RollDice(p.MissChance()) {
+		ret.IsMiss = true
 		return &ret
 	}
 

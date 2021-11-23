@@ -46,4 +46,14 @@ func initRings() {
 			AttackPower: 56,
 		},
 	}
+
+	rings["alexandrite ring of shadow protection"] = eq.ArmorItem{
+		Name: "alexandrite ring of shadow protection",
+		BaseStats: eq.BaseStats{
+			Stamina: 30,
+			Resistance: eq.Resistance{
+				Shadow: 19,
+			},
+		},
+	}
 }

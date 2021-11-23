@@ -75,6 +75,7 @@ func init() {
 	runCmd.PersistentFlags().Int("chart-bukcket-size", 10, "The time delta of the average plots")
 	runCmd.PersistentFlags().Bool("disable-charts", false, "If enabled, no charts will be produced")
 	runCmd.PersistentFlags().StringP("simulation-preset", "f", "preset.json", "Simulation preset to be ran")
+	runCmd.PersistentFlags().Bool("print-resistance", false, "If enabled, print reistance values with base stats")
 
 	viper.BindPFlag("simulation-preset", runCmd.PersistentFlags().Lookup("simulation-preset"))
 	viper.BindPFlag("iterations", runCmd.PersistentFlags().Lookup("iterations"))
@@ -83,4 +84,6 @@ func init() {
 	viper.BindPFlag("chart-bukcket-size", runCmd.PersistentFlags().Lookup("chart-bukcket-size"))
 	viper.BindPFlag("charts-folder", runCmd.PersistentFlags().Lookup("charts-folder"))
 	viper.BindPFlag("disable-charts", runCmd.PersistentFlags().Lookup("disable-charts"))
+	viper.BindPFlag("print-resistance", runCmd.PersistentFlags().Lookup("print-resistance"))
+
 }

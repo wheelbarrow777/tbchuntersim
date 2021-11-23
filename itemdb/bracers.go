@@ -44,4 +44,14 @@ func initBracers() {
 			},
 		},
 	}
+
+	bracers["nightfall wristguards"] = eq.ArmorItem{
+		Name: "nightfall wristguards",
+		BaseStats: eq.BaseStats{
+			Armor:       153,
+			Agility:     24,
+			Stamina:     22,
+			AttackPower: 46,
+		},
+	}
 }

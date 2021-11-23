@@ -49,4 +49,24 @@ func initChests() {
 			},
 		},
 	}
+
+	chests["beast lord cuirass"] = eq.ArmorItem{
+		Name: "beast lord cuirass",
+		BaseStats: eq.BaseStats{
+			Armor:       652,
+			Agility:     20,
+			Stamina:     30,
+			Intellect:   24,
+			AttackPower: 40,
+			MP5:         4,
+		},
+		Gems: eq.GemSlots{
+			SlotColors: []eq.GemColor{
+				eq.RedGem, eq.RedGem, eq.BlueGem,
+			},
+			Bonus: eq.BaseStats{
+				Agility: 4,
+			},
+		},
+	}
 }

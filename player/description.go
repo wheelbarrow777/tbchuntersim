@@ -25,6 +25,14 @@ func (p Player) renderStatsCard(t io.Writer) {
 
 		{"MP5", fmt.Sprintf("%d", p.mp5)},
 	}
+
+	// TODO: Add Print
+	// if viper.GetBool("print-resistance") {
+	// 	statData = append(statData, []string{
+	// 		"Shadow Resistance", fmt.Sprintf("%d", p.Equipment.Helm.Gems.SummedStats().Armor)
+	// 	})
+	// }
+
 	statTable.SetBorder(true)
 	statTable.AppendBulk(statData)
 	statTable.Render()
@@ -76,6 +84,7 @@ func (p Player) renderBuffsCard(t io.Writer) {
 func (p Player) renderConsumsCard(t io.Writer) {
 	table := tablewriter.NewWriter(t)
 	table.SetHeader([]string{"Consumable", "Enabled"})
+
 	data := [][]string{
 		{"Leatherworking Drums", fmt.Sprintf("%t", p.ActivatedConsumables.LeatherworkingDrums)},
 		{"Haste Potion", fmt.Sprintf("%t", p.ActivatedConsumables.HastePotion)},

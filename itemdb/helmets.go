@@ -58,4 +58,15 @@ func initHelmets() {
 			},
 		},
 	}
+
+	helmets["cogspinner goggles of shadow"] = eq.ArmorItem{
+		Name: "cogspinner goggles of shadow",
+		BaseStats: eq.BaseStats{
+			Armor:   220,
+			Stamina: 59,
+			Resistance: eq.Resistance{
+				Shadow: 20,
+			},
+		},
+	}
 }

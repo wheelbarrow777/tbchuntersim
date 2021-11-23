@@ -42,6 +42,7 @@ func (ss SteadyShot) calcDamage(p *player.Player) *CastResult {
 
 	// Is it a miss?
 	if util.RollDice(p.MissChance()) {
+		ret.IsMiss = true
 		return &ret
 	}
 

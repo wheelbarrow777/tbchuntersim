@@ -1,0 +1,217 @@
+{
+	"Race": "orc",
+	"Equipment": {
+		"Helm": {
+			"Name": "beast lord helm",
+			"Enchant": "glyph of ferocity",
+			"Gems": [
+				"Relentless Earthstorm Diamond",
+				"Bold ornate ruby"
+			]
+		},
+		"Neck": {
+			"Name": "choker of vile intent"
+		},
+		"Shoulders": {
+			"Name": "Beast lord mantle",
+			"Gems": [
+				"inscribed ornate topaz",
+				"delicate living ruby"
+			],
+			"Enchant": "Greater Inscription of Vengeance"
+		},
+		"Cloak": {
+			"Name": "vengeance wrap",
+			"Enchant": "Enchant Cloak - Greater Agility"
+		},
+		"Chest": {
+			"Name": "Beast Lord Cuirass",
+			"Gems": [
+				"Delicate Living Ruby",
+				"Delicate Living Ruby",
+				"Shifting Tanzanite"
+			],
+			"Enchant": "Shadow Armor Kit"
+		},
+		"Bracers": {
+			"Name": "Nightfall Wristguards",
+			"Enchant": "Enchant Bracer - Assault"
+		},
+		"Gloves": {
+			"Name": "Beast Lord Handguards",
+			"Enchant": "Enchant Gloves - Superior Agility"
+		},
+		"Belt": {
+			"Name": "Belt of Deep Shadow",
+			"Gems": [
+				"shifting nightseye",
+				"wicked noble topaz"
+			]
+		},
+		"Pants": {
+			"Name": "midnight legguards",
+			"Enchant": "Nethercobra leg armor",
+			"Gems": [
+				"delicate living ruby",
+				"delicate living ruby",
+				"delicate living ruby"
+			]
+		},
+		"Boots": {
+			"Name": "Fel Leather boots",
+			"Enchant": "Enchant Boots - Dexterity"
+		},
+		"RingOne": {
+			"Name": "Ring of a Thousand Marks"
+		},
+		"RingTwo": {
+			"Name": "Band of the Ranger-General"
+		},
+		"TrinketOne": {
+			"Name": "Bloodlust Brooch"
+		},
+		"TrinketTwo": {
+			"Name": "Dragonspine Trophy"
+		},
+		"MainHand": {
+			"Name": "Stellaris",
+			"Enchant": "Enchant Weapon - Agility"
+		},
+		"OffHand": {
+			"Name": "Stormreaver Warblades",
+			"Enchant": "Enchant Weapon - Agility",
+			"Oil": "Adamantite Weightstone"
+		},
+		"Ranged": {
+			"Name": "Serpent Spine Longbow",
+			"Scope": "stabilized eternium scope"
+		},
+		"Quiver": "Clefthoof Hide Quiver",
+		"AmmoDPS": 43
+	},
+	"Consumables": {
+		"Food": "Warp Burger",
+		"BattleElixir": "Elixir of Major Agility",
+		"GuardianElixir": "Elixir of Major Mageblood",
+		"AgilityScroll": "",
+		"StrengthScroll": "",
+		"PetFood": "Kibler's Bits",
+		"PetScrollAgility": false,
+		"PetScrollStrenght": false
+	},
+	"ActivatedConsumables": {
+		"LeatherworkingDrums": false,
+		"HastePotion": false,
+		"ManaPotion": true
+	},
+	"Buffs": {
+		"BlessingOfKings": {
+			"Active": true
+		},
+		"BlessingOfMight": {
+			"Active": true,
+			"Improved": true
+		},
+		"BlessingOfWisdom": {
+			"Active": true,
+			"Improved": true
+		},
+		"BattleShout": {
+			"Active": true,
+			"Improved": true
+		},
+		"TrueShotAura": false,
+		"LeaderOfThePack": {
+			"Active": true,
+			"Improved": true
+		},
+		"GraceOfAirTotem": {
+			"Active": true,
+			"Improved": true
+		},
+		"StrengthOfEarthTotem": {
+			"Active": true,
+			"Improved": true
+		},
+		"ManaSpringTotem": {
+			"Active": false
+		},
+		"ArcaneBrilliance": true,
+		"GiftOfTheWild": {
+			"Active": true,
+			"Improved": true
+		},
+		"BloodLustCount": 1,
+		"PrayerOfFortitude": {
+			"Active": true,
+			"Improved": true
+		},
+		"FerociousInspirationCount": {
+			"Uptime": 0.92,
+			"ExtraHunters": 1
+		},
+		"BloodPact": {
+			"Active": true,
+			"Improved": false
+		},
+		"BraidedEterniumChain": false
+	},
+	"Talents": {
+		"BM": {
+			"SerpentsSwiftness": 5,
+			"FerociousInspiration": 3
+		},
+		"MM": {
+			"TrueshotAura": 0,
+			"LethalShots": 5,
+			"MortalShots": 5,
+			"CarefulAim": 0
+		},
+		"SV": {
+			"KillerInstinct": 0
+		}
+	},
+	"TargetDebuffs": {
+		"ImprovedHuntersMark": {
+			"Active": false
+		},
+		"JudgementOfWisdom": {
+			"Active": true
+		},
+		"JudgementOfTheCrusader": {
+			"Active": true
+		},
+		"CurseOfElements": {
+			"Active": true
+		},
+		"ExposeWeakness": {
+			"Active": true,
+			"Uptime": 0.92,
+			"Value": 284
+		},
+		"SunderArmor": {
+			"Active": true
+		},
+		"ExposeArmor": {
+			"Active": false,
+			"Improved": false
+		},
+		"CurseOfRecklessness": {
+			"Active": true
+		},
+		"FaeriFire": {
+			"Active": true,
+			"Improved": true
+		},
+		"Misery": {
+			"Active": false
+		},
+		"BloodFrenzy": {
+			"Active": false
+		}
+	},
+	"Options": {
+		"SimDuration": 240,
+		"TargetArmor": 8800
+	}
+}

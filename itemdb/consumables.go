@@ -34,6 +34,10 @@ func initConsumables() {
 		Spirit:   20,
 		Strength: 0,
 	}
+	consumables["spicy hot talbuk"] = cs.StaticConsumable{
+		HitRating: 20,
+		Spirit:    20,
+	}
 	consumables["kibler's bits"] = cs.StaticConsumable{
 		Agility:  0,
 		Strength: 20,

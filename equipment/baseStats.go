@@ -1,5 +1,10 @@
 package equipment
 
+type Resistance struct {
+	Frost  int
+	Shadow int
+}
+
 type BaseStats struct {
 	Armor int
 
@@ -13,6 +18,8 @@ type BaseStats struct {
 	CritRating       int
 	HasteRating      int
 	ArmorPenetration int
+
+	Resistance Resistance
 
 	MP5       int
 	HitRating int

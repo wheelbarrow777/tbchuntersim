@@ -37,4 +37,30 @@ func initCloaks() {
 			AttackPower: 68,
 		},
 	}
+
+	cloaks["abyssal shroud"] = eq.ArmorItem{
+		Name: "abyssal shroud",
+		BaseStats: eq.BaseStats{
+			Stamina: 15,
+			Resistance: eq.Resistance{
+				Shadow: 18,
+			},
+		},
+	}
+
+	cloaks["vengeance wrap"] = eq.ArmorItem{
+		Name: "vengeance wrap",
+		BaseStats: eq.BaseStats{
+			Armor:       89,
+			CritRating:  23,
+			AttackPower: 52,
+		},
+		Gems: eq.GemSlots{
+			SlotColors: []eq.GemColor{eq.RedGem},
+			Bonus: eq.BaseStats{
+				HitRating: 2,
+			},
+		},
+		Enchant: eq.Enchant{},
+	}
 }

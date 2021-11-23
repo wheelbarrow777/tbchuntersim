@@ -118,7 +118,7 @@ func RunSimulationLoop(opts preset.SimOptions, p player.Player) *LoopResult {
 
 		// Calculate the real damage
 		if castResult.IsPhysical {
-			realDamageDealt := util.CalculateReducedArmorDamage(castResult.Damage, opts.TargetArmor)
+			realDamageDealt := util.CalculateReducedArmorDamage(castResult.Damage, opts.TargetArmor-p.ArmorPenetrationRatio())
 
 			// Apply damage effects
 			if p.TargetDebuffs.BloodFrenzy.Active {
@@ -139,7 +139,9 @@ func RunSimulationLoop(opts preset.SimOptions, p player.Player) *LoopResult {
 				}
 			}
 
-			abilityPriority[0].NumHits++
+			if !castResult.IsMiss {
+				abilityPriority[0].NumHits++
+			}
 			abilityPriority[0].TotalDamage += realDamageDealt
 			simRes.Damage = append(simRes.Damage, realDamageDealt)
 		} else {

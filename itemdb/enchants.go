@@ -71,6 +71,24 @@ func initEnchants() {
 		Agility: 15,
 	}
 
+	enchants["glyph of shadow warding"] = eq.Enchant{
+		Resistance: eq.Resistance{
+			Shadow: 20,
+		},
+	}
+
+	enchants["shadow armor kit"] = eq.Enchant{
+		Resistance: eq.Resistance{
+			Shadow: 8,
+		},
+	}
+
+	enchants["enchant cloak - greater shadow resistance"] = eq.Enchant{
+		Resistance: eq.Resistance{
+			Shadow: 15,
+		},
+	}
+
 	scopes["stabilized eternium scope"] = eq.Scope{
 		Damage: 0,
 		BaseStats: eq.BaseStats{
