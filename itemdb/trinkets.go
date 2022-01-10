@@ -30,4 +30,17 @@ func initTrinkets() {
 			AttackPower: 40,
 		},
 	}
+	trinkets["ultra-flash shadow reflector"] = eq.ArmorItem{
+		Name: "ultra-flash shadow reflector",
+		BaseStats: eq.BaseStats{
+			Resistance: eq.Resistance{
+				Shadow: 20,
+			},
+		},
+	}
+
+	trinkets["gnomish battle chicken"] = eq.ArmorItem{
+		Name:      "gnomish battle chicken",
+		BaseStats: eq.BaseStats{},
+	}
 }

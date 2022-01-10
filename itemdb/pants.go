@@ -57,4 +57,40 @@ func initPants() {
 			AttackPower: 92,
 		},
 	}
+
+	pants["midnight legguards"] = eq.ArmorItem{
+		Name: "midnight legguards",
+		BaseStats: eq.BaseStats{
+			Armor:       305,
+			Stamina:     30,
+			HitRating:   17,
+			CritRating:  27,
+			AttackPower: 64,
+		},
+		Gems: eq.GemSlots{
+			SlotColors: []eq.GemColor{eq.RedGem, eq.RedGem, eq.BlueGem},
+			Bonus: eq.BaseStats{
+				HitRating: 4,
+			},
+		},
+	}
+
+	pants["rift stalker leggings"] = eq.ArmorItem{
+		Name: "rift stalker leggings",
+		BaseStats: eq.BaseStats{
+			Armor:       817,
+			Agility:     40,
+			Stamina:     39,
+			Intellect:   26,
+			HitRating:   18,
+			AttackPower: 92,
+			MP5:         7,
+		},
+		Gems: eq.GemSlots{
+			SlotColors: []eq.GemColor{eq.RedGem},
+			Bonus: eq.BaseStats{
+				CritRating: 2,
+			},
+		},
+	}
 }

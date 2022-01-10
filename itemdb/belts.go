@@ -44,4 +44,15 @@ func initBelts() {
 			},
 		},
 	}
+
+	belts["dreghood belt of shadow protection"] = eq.ArmorItem{
+		Name: "dreghood belt of shadow protection",
+		BaseStats: eq.BaseStats{
+			Armor:   121,
+			Stamina: 31,
+			Resistance: eq.Resistance{
+				Shadow: 20,
+			},
+		},
+	}
 }

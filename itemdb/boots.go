@@ -57,4 +57,31 @@ func initBoots() {
 			},
 		},
 	}
+
+	boots["frostsaber boots"] = eq.ArmorItem{
+		Name: "frostsaber boots",
+		BaseStats: eq.BaseStats{
+			Armor: 99,
+			Resistance: eq.Resistance{
+				Shadow: 12,
+				Frost:  12,
+			},
+		},
+	}
+
+	boots["fel leather boots"] = eq.ArmorItem{
+		Name: "fel leather boots",
+		BaseStats: eq.BaseStats{
+			Armor:       196,
+			HitRating:   25,
+			CritRating:  17,
+			AttackPower: 36,
+		},
+		Gems: eq.GemSlots{
+			SlotColors: []eq.GemColor{eq.YellowGem, eq.RedGem},
+			Bonus: eq.BaseStats{
+				AttackPower: 6,
+			},
+		},
+	}
 }

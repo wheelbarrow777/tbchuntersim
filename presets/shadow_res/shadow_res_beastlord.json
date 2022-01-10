@@ -1,0 +1,207 @@
+{
+	"Race": "orc",
+	"Equipment": {
+		"Helm": {
+			"Name": "Cogspinner Goggles of Shadow",
+			"Enchant": "glyph of shadow warding"
+		},
+		"Neck": {
+			"Name": "Medallion of Karabor"
+		},
+		"Shoulders": {
+			"Name": "Beast lord mantle",
+			"Gems": [
+				"delicate living ruby",
+				"delicate living ruby"
+			],
+			"Enchant": "Greater Inscription of Vengeance"
+		},
+		"Cloak": {
+			"Name": "Abyssal Shroud",
+			"Enchant": "Enchant Cloak - Greater Shadow Resistance"
+		},
+		"Chest": {
+			"Name": "Beast Lord Cuirass",
+			"Gems": [
+				"Delicate Living Ruby",
+				"Delicate Living Ruby",
+				"Delicate Living Ruby"
+			],
+			"Enchant": "Shadow Armor Kit"
+		},
+		"Bracers": {
+			"Name": "Vambraces of Ending",
+			"Gems": [
+				"delicate living ruby"
+			],
+			"Enchant": "Enchant Bracer - Assault"
+		},
+		"Gloves": {
+			"Name": "Beast Lord Handguards",
+			"Enchant": "Shadow Armor Kit"
+		},
+		"Belt": {
+			"Name": "Dreghood Belt of Shadow Protection"
+		},
+		"Pants": {
+			"Name": "Beast Lord Leggings",
+			"Enchant": "Shadow Armor Kit"
+		},
+		"Boots": {
+			"Name": "Frostsaber Boots",
+			"Enchant": "Shadow Armor Kit"
+		},
+		"RingOne": {
+			"Name": "Alexandrite Ring of Shadow Protection"
+		},
+		"RingTwo": {
+			"Name": "Alexandrite Ring of Shadow Protection"
+		},
+		"TrinketOne": {
+			"Name": "Bloodlust Brooch"
+		},
+		"TrinketTwo": {
+			"Name": "Dragonspine Trophy"
+		},
+		"MainHand": {
+			"Name": "Stellaris",
+			"Enchant": "Enchant Weapon - Agility"
+		},
+		"OffHand": {
+			"Name": "Stormreaver Warblades",
+			"Enchant": "Enchant Weapon - Agility",
+			"Oil": "Adamantite Weightstone"
+		},
+		"Ranged": {
+			"Name": "Serpent Spine Longbow",
+			"Scope": "stabilized eternium scope"
+		},
+		"Quiver": "Clefthoof Hide Quiver",
+		"AmmoDPS": 43
+	},
+	"Consumables": {
+		"Food": "Spicy Hot Talbuk",
+		"BattleElixir": "Elixir of Major Agility",
+		"GuardianElixir": "Elixir of Major Mageblood",
+		"AgilityScroll": "",
+		"StrengthScroll": "",
+		"PetFood": "Kibler's Bits",
+		"PetScrollAgility": false,
+		"PetScrollStrenght": false
+	},
+	"ActivatedConsumables": {
+		"LeatherworkingDrums": false,
+		"HastePotion": false,
+		"ManaPotion": true
+	},
+	"Buffs": {
+		"BlessingOfKings": {
+			"Active": true
+		},
+		"BlessingOfMight": {
+			"Active": true,
+			"Improved": true
+		},
+		"BlessingOfWisdom": {
+			"Active": true,
+			"Improved": true
+		},
+		"BattleShout": {
+			"Active": true,
+			"Improved": true
+		},
+		"TrueShotAura": false,
+		"LeaderOfThePack": {
+			"Active": true,
+			"Improved": true
+		},
+		"GraceOfAirTotem": {
+			"Active": true,
+			"Improved": true
+		},
+		"StrengthOfEarthTotem": {
+			"Active": true,
+			"Improved": true
+		},
+		"ManaSpringTotem": {
+			"Active": false
+		},
+		"ArcaneBrilliance": true,
+		"GiftOfTheWild": {
+			"Active": true,
+			"Improved": true
+		},
+		"BloodLustCount": 1,
+		"PrayerOfFortitude": {
+			"Active": true,
+			"Improved": true
+		},
+		"FerociousInspirationCount": {
+			"Uptime": 0.92,
+			"ExtraHunters": 1
+		},
+		"BloodPact": {
+			"Active": true,
+			"Improved": false
+		},
+		"BraidedEterniumChain": false
+	},
+	"Talents": {
+		"BM": {
+			"SerpentsSwiftness": 5,
+			"FerociousInspiration": 3
+		},
+		"MM": {
+			"TrueshotAura": 0,
+			"LethalShots": 5,
+			"MortalShots": 5,
+			"CarefulAim": 0
+		},
+		"SV": {
+			"KillerInstinct": 0
+		}
+	},
+	"TargetDebuffs": {
+		"ImprovedHuntersMark": {
+			"Active": false
+		},
+		"JudgementOfWisdom": {
+			"Active": true
+		},
+		"JudgementOfTheCrusader": {
+			"Active": true
+		},
+		"CurseOfElements": {
+			"Active": true
+		},
+		"ExposeWeakness": {
+			"Active": true,
+			"Uptime": 0.92,
+			"Value": 284
+		},
+		"SunderArmor": {
+			"Active": true
+		},
+		"ExposeArmor": {
+			"Active": false,
+			"Improved": false
+		},
+		"CurseOfRecklessness": {
+			"Active": true
+		},
+		"FaeriFire": {
+			"Active": true,
+			"Improved": true
+		},
+		"Misery": {
+			"Active": false
+		},
+		"BloodFrenzy": {
+			"Active": false
+		}
+	},
+	"Options": {
+		"SimDuration": 240,
+		"TargetArmor": 8800
+	}
+}

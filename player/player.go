@@ -334,6 +334,7 @@ func (p *Player) calculateStats() {
 	// Calculate max mana
 	p.MaxMana = float64(p.Race.Mana) + (float64(p.intellect)-10.0)*15
 	p.CurrentMana = p.MaxMana
+
 }
 
 func (p *Player) ApplyMP5() {
