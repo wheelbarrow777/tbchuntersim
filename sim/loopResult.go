@@ -20,6 +20,7 @@ type LoopResult struct {
 	Damage            []float64
 	RangedAttackSpeed []float64
 	Ability           map[string]AbilityDetails
+	MadnessUptimeData []bool
 }
 
 func (sr LoopResult) flooredTime() []int {
@@ -44,6 +45,46 @@ func (sr LoopResult) ManaChart(filename string) {
 	line.SetXAxis(sr.flooredTime()).AddSeries("mana", lineItems)
 	f, _ := os.Create(filename)
 	line.Render(f)
+}
+
+func (sr LoopResult) MadnessUptimeChart(filename string) {
+	line := charts.NewLine()
+	line.SetGlobalOptions(charts.WithTitleOpts(opts.Title{
+		Title: "Madness Uptime",
+	}))
+
+	lineItems := make([]opts.LineData, 0)
+	for i := 0; i < len(sr.Time); i++ {
+		if sr.MadnessUptimeData[i] {
+			lineItems = append(lineItems, opts.LineData{Value: 1})
+		} else {
+			lineItems = append(lineItems, opts.LineData{Value: 0})
+		}
+	}
+
+	line.SetXAxis(sr.flooredTime()).AddSeries("uptime", lineItems)
+	f, _ := os.Create(filename)
+	line.Render(f)
+}
+
+func (sr LoopResult) MadnessUptime() float64 {
+	// Divide into second buckets
+
+	var uptimeAtSecond = make([]bool, int(sr.Time[len(sr.Time)-1])+1)
+	for i, uptimeTick := range sr.MadnessUptimeData {
+		if uptimeTick {
+			uptimeAtSecond[int(sr.Time[i])] = true
+		}
+	}
+
+	// Loop through all buckets, find how many seconds were active
+	activeSeconds := 0.0
+	for _, s := range uptimeAtSecond {
+		if s {
+			activeSeconds += 1.0
+		}
+	}
+	return activeSeconds / float64(len(uptimeAtSecond))
 }
 
 func (sr LoopResult) DPSAtTimeDeltas(delta int) []float64 {

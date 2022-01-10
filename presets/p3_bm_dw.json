@@ -1,0 +1,221 @@
+{
+	"Race": "Orc",
+	"Equipment": {
+		"Helm": {
+			"Name": "Cursed Vision of Sargeras",
+			"Gems": [
+				"Relentless Earthstorm Diamond",
+				"Delicate Crimson Spinel"
+			],
+			"Enchant": "Glyph of Ferocity"
+		},
+		"Neck": {
+			"Name": "Choker of Endless Nightmares"
+		},
+		"Shoulders": {
+			"Name": "Gronnstalker's Spaulders",
+			"Gems": [
+				"Delicate Crimson Spinel",
+				"Delicate Crimson Spinel"
+			],
+			"Enchant": "Greater Inscription of Vengeance"
+		},
+		"Cloak": {
+			"Name": "Shadowmoon Destroyer's Drape",
+			"Enchant": "Greater Agility"
+		},
+		"Chest": {
+			"Name": "Gronnstalker's Chestguard",
+			"Gems": [
+				"Delicate Crimson Spinel",
+				"Jagged Seaspray Emerald",
+				"Jagged Seaspray Emerald"
+			],
+			"Enchant": "Exceptional Stats"
+		},
+		"Bracers": {
+			"Name": "Swiftstrike Bracers",
+			"Enchant": "Assault"
+		},
+		"Gloves": {
+			"Name": "Gronnstalker's Gloves",
+			"Gems": [
+				"Delicate Crimson Spinel"
+			],
+			"Enchant": "Superior Agility"
+		},
+		"Belt": {
+			"Name": "Boneweave Girdle"
+		},
+		"Pants": {
+			"Name": "Gronnstalker's Leggings",
+			"Gems": [
+				"Delicate Crimson Spinel"
+			],
+			"Enchant": "Nethercobra Leg Armor"
+		},
+		"Boots": {
+			"Name": "Shadowmaster's Boots",
+			"Gems": [
+				"Delicate Crimson Spinel",
+				"Delicate Crimson Spinel"
+			],
+			"Enchant": "Dexterity"
+		},
+		"RingOne": {
+			"Name": "Stormrage Signet Ring"
+		},
+		"RingTwo": {
+			"Name": "Band of the Eternal Champion"
+		},
+		"TrinketOne": {
+			"Name": "Madness of the Betrayer"
+		},
+		"TrinketTwo": {
+			"Name": "Dragonspine Trophy"
+		},
+		"MainHand": {
+			"Name": "Boundless Agony",
+			"Enchant": "Greater Agility",
+			"Oil": "Adamantite Sharpening Stone"
+		},
+		"OffHand": {
+			"Name": "Blade of Infamy",
+			"Enchant": "Greater Agility",
+			"Oil": "Adamantite Sharpening Stone"
+		},
+		"Ranged": {
+			"Name": "Bristleblitz Striker",
+			"Scope": "stabilized eternium scope"
+		},
+		"Quiver": "Ancient Sinew Wrapper Lamina",
+		"AmmoDPS": 46.5
+	},
+	"Consumables": {
+		"Food": "",
+		"BattleElixir": "",
+		"GuardianElixir": "",
+		"AgilityScroll": "",
+		"StrengthScroll": "",
+		"PetFood": "",
+		"PetScrollAgility": false,
+		"PetScrollStrenght": false
+	},
+	"ActivatedConsumables": {
+		"LeatherworkingDrums": false,
+		"HastePotion": false,
+		"ManaPotion": false
+	},
+	"Buffs": {
+		"BlessingOfKings": {
+			"Active": false
+		},
+		"BlessingOfMight": {
+			"Active": false,
+			"Improved": false
+		},
+		"BlessingOfWisdom": {
+			"Active": false,
+			"Improved": false
+		},
+		"BattleShout": {
+			"Active": false,
+			"Improved": false
+		},
+		"TrueShotAura": false,
+		"LeaderOfThePack": {
+			"Active": false,
+			"Improved": false
+		},
+		"GraceOfAirTotem": {
+			"Active": false,
+			"Improved": false
+		},
+		"StrengthOfEarthTotem": {
+			"Active": false,
+			"Improved": false
+		},
+		"ManaSpringTotem": {
+			"Active": false
+		},
+		"ArcaneBrilliance": false,
+		"GiftOfTheWild": {
+			"Active": false,
+			"Improved": false
+		},
+		"BloodLustCount": 0,
+		"FerociousInspirationCount": {
+			"ExtraHunters": 0,
+			"Uptime": 0.94
+		},
+		"PrayerOfFortitude": {
+			"Active": false,
+			"Improved": false
+		},
+		"BloodPact": {
+			"Active": false,
+			"Improved": false
+		},
+		"BraidedEterniumChain": false
+	},
+	"TargetDebuffs": {
+		"ImprovedHuntersMark": {
+			"Active": false
+		},
+		"JudgementOfWisdom": {
+			"Active": false
+		},
+		"JudgementOfTheCrusader": {
+			"Active": false
+		},
+		"CurseOfElements": {
+			"Active": false,
+			"Improved": false
+		},
+		"ExposeWeakness": {
+			"Active": false,
+			"Uptime": 0,
+			"Value": 0
+		},
+		"SunderArmor": {
+			"Active": false
+		},
+		"ExposeArmor": {
+			"Active": false,
+			"Improved": false
+		},
+		"CurseOfRecklessness": {
+			"Active": false
+		},
+		"FaeriFire": {
+			"Active": false,
+			"Improved": false
+		},
+		"Misery": {
+			"Active": false
+		},
+		"BloodFrenzy": {
+			"Active": false
+		}
+	},
+	"Talents": {
+		"BM": {
+			"SerpentsSwiftness": 0,
+			"FerociousInspiration": 0
+		},
+		"MM": {
+			"TrueshotAura": 0,
+			"LethalShots": 0,
+			"MortalShots": 0,
+			"CarefulAim": 0
+		},
+		"SV": {
+			"KillerInstinct": 0
+		}
+	},
+	"Options": {
+		"SimDuration": 0,
+		"Latency": 0,
+		"TargetArmor": 0
+	}
+}

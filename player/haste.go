@@ -36,7 +36,6 @@ func (p Player) BonusHaste() float64 {
 
 func (p Player) BonusHasteRating() float64 {
 	rating := p.hasteRating
-
 	if p.Am.TimerModifiers.DST > 0 {
 		rating += DST_HASTE_BONUS
 	}
@@ -64,6 +63,10 @@ func (p Player) ArmorPenetrationRatio() float64 {
 
 	if p.Am.TimerModifiers.BeastLordArmorPen > 0 {
 		amp += BEAST_LORD_ARMOR_IGNORE
+	}
+
+	if p.Am.TimerModifiers.Madness > 0 {
+		amp += MADNESS_ARMOR_IGNORE
 	}
 
 	return float64(amp)

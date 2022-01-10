@@ -33,6 +33,17 @@ func (col ResultConnection) DPS() float64 {
 	return dps / float64(len(col.results))
 }
 
+func (col ResultConnection) MadnessUptime() float64 {
+	total := 0.0
+	its := 0.0
+	for _, v := range col.results {
+		total += v.MadnessUptime()
+		its++
+	}
+
+	return total / its
+}
+
 func inlineSum(x *[]float64, y []float64) {
 	for i, v := range y {
 		(*x)[i] += v

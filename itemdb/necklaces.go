@@ -46,4 +46,13 @@ func initNecklaces() {
 			},
 		},
 	}
+
+	neck["choker of endless nightmares"] = eq.ArmorItem{
+		Name: "Choker of Endless Nightmares",
+		BaseStats: eq.BaseStats{
+			HasteRating: 21,
+			CritRating:  27,
+			AttackPower: 72,
+		},
+	}
 }

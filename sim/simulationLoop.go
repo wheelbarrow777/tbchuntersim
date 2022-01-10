@@ -68,6 +68,9 @@ func RunSimulationLoop(opts preset.SimOptions, p player.Player) *LoopResult {
 	if p.Equipment.TrinketOne.Name == "bloodlust brooch" || p.Equipment.TrinketTwo.Name == "bloodlust brooch" {
 		abilityPriority = append(abilityPriority, newSimAbility(trinkets.NewBloodlustBrooch(), "Bloodlust Brooch"))
 	}
+	if p.Equipment.TrinketOne.Name == "madness of the betrayer" || p.Equipment.TrinketTwo.Name == "madness of the betrayer" {
+		abilityPriority = append(abilityPriority, newSimAbility(trinkets.NewMadness(), "Madness of the Betrayer"))
+	}
 	if p.ActivatedConsumables.LeatherworkingDrums {
 		abilityPriority = append(abilityPriority, newSimAbility(potions.NewLeatherworkingDrums(), "Leatherworking Drums"))
 	}
@@ -188,6 +191,15 @@ func RunSimulationLoop(opts preset.SimOptions, p player.Player) *LoopResult {
 		// Log the time and current mana
 		simRes.Time = append(simRes.Time, stopTime)
 		simRes.Mana = append(simRes.Mana, p.CurrentMana)
+
+		// Log uptimes
+		if p.Equipment.TrinketOne.Name == "madness of the betrayer" || p.Equipment.TrinketTwo.Name == "madness of the betrayer" {
+			if p.Am.TimerModifiers.Madness > 0 {
+				simRes.MadnessUptimeData = append(simRes.MadnessUptimeData, true)
+			} else {
+				simRes.MadnessUptimeData = append(simRes.MadnessUptimeData, false)
+			}
+		}
 
 		log.WithFields(log.Fields{
 			"startTime": startTime,

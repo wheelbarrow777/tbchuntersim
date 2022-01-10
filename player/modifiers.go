@@ -20,6 +20,7 @@ type timerModifier struct {
 	// Trinkets
 	DST             float64
 	BloodlustBrooch float64
+	Madness         float64
 }
 
 type ActiveModifiers struct {
@@ -32,7 +33,9 @@ const (
 
 	BEAST_LORD_ARMOR_IGNORE = 600
 	DST_HASTE_BONUS         = 325
-	HASTE_POTION_BONUS      = 400
+	MADNESS_ARMOR_IGNORE    = 300
+
+	HASTE_POTION_BONUS = 400
 
 	CRIT_RATING_RATIO = 22.0765
 	HIT_RATING_RATION = 15.76

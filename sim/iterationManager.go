@@ -24,6 +24,7 @@ type RunSimulationOpts struct {
 	ChartTimeDelta   int
 	DisableCharts    bool
 	ChartsFolder     string
+	CompDPS          float64
 }
 
 func RunSimulation(opts *RunSimulationOpts) {
@@ -54,6 +55,7 @@ func RunSimulation(opts *RunSimulationOpts) {
 			r.ManaChart(fmt.Sprintf("%ssingle_mana_%d.html", opts.ChartsFolder, a))
 			r.RangedASChart(fmt.Sprintf("%ssingle_ras_%d.html", opts.ChartsFolder, a))
 			r.AbilityBreakdownChart(fmt.Sprintf("%ssingle_ability_breakdown_%d.html", opts.ChartsFolder, a))
+			r.MadnessUptimeChart(fmt.Sprintf("%ssingle_madness_uptime_%d.html", opts.ChartsFolder, a))
 		}
 		col.Add(*r)
 		bar.Add(1)
@@ -68,5 +70,16 @@ func RunSimulation(opts *RunSimulationOpts) {
 	fmt.Printf("\n\n")
 	col.AbilityBreakdownTable(os.Stdout)
 	fmt.Printf("\n\n")
-	log.Infof("Simulation Complete! DPS = %.2f\n\n", col.DPS())
+
+	DPS := col.DPS()
+
+	if opts.CompDPS == 0.0 {
+		log.Infof("Simulation Complete! DPS = %.2f\n\n", DPS)
+	} else {
+		diff := ((DPS - opts.CompDPS) / DPS) * 100.0
+		log.Infof("Simulation Complete! DPS = %.2f (%.2f%% change)\n\n", DPS, diff)
+	}
+
+	log.Infof("Madness Uptime %f", col.MadnessUptime())
+
 }

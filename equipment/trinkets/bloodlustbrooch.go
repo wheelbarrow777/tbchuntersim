@@ -17,7 +17,7 @@ type BloodlustBrooch struct {
 func (bb *BloodlustBrooch) Cast(p *player.Player) *abilities.CastResult {
 	log.Debug("Casting Bloodlust Brooch")
 	bb.CurrentCooldown = bb.baseCooldown
-	p.Am.TimerModifiers.TBW = bb.buffDuration
+	p.Am.TimerModifiers.BloodlustBrooch = bb.buffDuration
 
 	return &abilities.CastResult{
 		Damage:           0,
