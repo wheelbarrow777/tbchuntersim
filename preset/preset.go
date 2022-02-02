@@ -51,7 +51,7 @@ type eq struct {
 	OffHand    weapon
 	Ranged     rangedWeapon
 	Quiver     string
-	AmmoDPS    int
+	AmmoDPS    float64
 }
 
 type consums struct {

@@ -161,6 +161,39 @@ func TestGemSlots_bonusAchieved(t *testing.T) {
 			},
 			want: true,
 		},
+		{
+			name: "prismatic_gems",
+			fields: fields{
+				SlotColors: []GemColor{
+					RedGem,
+					YellowGem,
+				},
+				Gems: []Gem{
+					{
+						Color: Prismatic,
+						BaseStats: BaseStats{
+							Resistance: Resistance{
+								Fire: 4,
+							},
+						},
+					},
+					{
+						Color: Prismatic,
+						BaseStats: BaseStats{
+							Resistance: Resistance{
+								Fire: 4,
+							},
+						},
+					},
+				},
+				Bonus: BaseStats{
+					Resistance: Resistance{
+						Arcane: 5,
+					},
+				},
+			},
+			want: true,
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {

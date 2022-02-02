@@ -71,7 +71,7 @@ func initHelmets() {
 	}
 
 	helmets["cursed vision of sargeras"] = eq.ArmorItem{
-		Name: "Cursed Vision of Sargeras",
+		Name: "cursed vision of sargeras",
 		BaseStats: eq.BaseStats{
 			Armor:       385,
 			Agility:     39,
@@ -92,7 +92,7 @@ func initHelmets() {
 	}
 
 	helmets["gronnstalker's helmet"] = eq.ArmorItem{
-		Name: "Gronnstalker's Helmet",
+		Name: "gronnstalker's helmet",
 		BaseStats: eq.BaseStats{
 			Armor:       830,
 			Agility:     45,

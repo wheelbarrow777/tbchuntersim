@@ -98,6 +98,72 @@ func initWeapons() {
 		},
 	}
 
+	meleeWeapons["claw of the watcher"] = eq.Weapon{
+		DamageMin:   125,
+		DamageMax:   233,
+		Speed:       2.5,
+		IsTwoHanded: false,
+		ArmorItem: eq.ArmorItem{
+			Name: "claw of the watcher",
+			BaseStats: eq.BaseStats{
+				CritRating:  12,
+				AttackPower: 24,
+			},
+			Gems: eq.GemSlots{
+				SlotColors: []eq.GemColor{
+					eq.RedGem, eq.BlueGem,
+				},
+				Bonus: eq.BaseStats{
+					CritRating: 3,
+				},
+			},
+		},
+	}
+
+	meleeWeapons["blade of the unrequited"] = eq.Weapon{
+		DamageMin:   112,
+		DamageMax:   168,
+		Speed:       1.6,
+		IsTwoHanded: false,
+		ArmorItem: eq.ArmorItem{
+			Name: "blade of the unrequited",
+			BaseStats: eq.BaseStats{
+				Stamina:     13,
+				CritRating:  9,
+				AttackPower: 18,
+			},
+			Gems: eq.GemSlots{
+				SlotColors: []eq.GemColor{eq.RedGem, eq.YellowGem, eq.BlueGem},
+				Bonus: eq.BaseStats{
+					AttackPower: 8,
+				},
+			},
+		},
+	}
+
+	meleeWeapons["twinblade of the phoenix"] = eq.Weapon{
+		DamageMin:   375,
+		DamageMax:   564,
+		Speed:       3.6,
+		IsTwoHanded: true,
+		ArmorItem: eq.ArmorItem{
+			Name: "twinblade of the phoenix",
+			BaseStats: eq.BaseStats{
+				Stamina:     53,
+				CritRating:  37,
+				AttackPower: 110,
+			},
+			Gems: eq.GemSlots{
+				SlotColors: []eq.GemColor{
+					eq.RedGem, eq.RedGem, eq.RedGem,
+				},
+				Bonus: eq.BaseStats{
+					AttackPower: 8,
+				},
+			},
+		},
+	}
+
 	rangedWeapons["sunfury bow of the phoenix"] = eq.RangedWeapon{
 		Weapon: eq.Weapon{
 			ArmorItem: eq.ArmorItem{

@@ -60,4 +60,18 @@ func initShoulders() {
 		},
 		Enchant: eq.Enchant{},
 	}
+
+	shoulders["gronnstalker's spaulders"] = eq.ArmorItem{
+		Name: "gronnstalker's spaulders",
+		BaseStats: eq.BaseStats{
+			Armor:            766,
+			Agility:          34,
+			Stamina:          39,
+			Intellect:        17,
+			AttackPower:      68,
+			ArmorPenetration: 126,
+		},
+		Gems:    eq.GemSlots{},
+		Enchant: eq.Enchant{},
+	}
 }

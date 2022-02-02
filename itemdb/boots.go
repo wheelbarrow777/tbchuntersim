@@ -84,4 +84,26 @@ func initBoots() {
 			},
 		},
 	}
+
+	boots["murkblood boots of shadow protection"] = eq.ArmorItem{
+		Name: "murkblood boots of shadow protection",
+		BaseStats: eq.BaseStats{
+			Armor:   181,
+			Stamina: 40,
+			Resistance: eq.Resistance{
+				Shadow: 26,
+			},
+		},
+	}
+
+	boots["rocket boots xtreme"] = eq.ArmorItem{
+		Name: "rocket boots xtreme",
+		BaseStats: eq.BaseStats{
+			Armor:       196,
+			AttackPower: 80,
+			Resistance: eq.Resistance{
+				Shadow: 8,
+			},
+		},
+	}
 }

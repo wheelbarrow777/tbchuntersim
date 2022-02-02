@@ -55,4 +55,14 @@ func initNecklaces() {
 			AttackPower: 72,
 		},
 	}
+
+	neck["blessed medallion of karabor"] = eq.ArmorItem{
+		Name: "blessed medallion of karabor",
+		BaseStats: eq.BaseStats{
+			Stamina: 49,
+			Resistance: eq.Resistance{
+				Shadow: 40,
+			},
+		},
+	}
 }

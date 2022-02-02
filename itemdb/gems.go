@@ -112,4 +112,18 @@ func initGems() {
 		},
 	}
 
+	gems["void sphere"] = eq.Gem{
+		Name:  "void sphere",
+		Color: eq.Prismatic,
+		BaseStats: eq.BaseStats{
+			Resistance: eq.Resistance{
+				Frost:  4,
+				Shadow: 4,
+				Fire:   4,
+				Nature: 4,
+				Arcane: 4,
+			},
+		},
+	}
+
 }

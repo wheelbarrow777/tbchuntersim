@@ -93,4 +93,42 @@ func initPants() {
 			},
 		},
 	}
+
+	pants["scaled greaves of the marksman"] = eq.ArmorItem{
+		Name: "scaled greaves of the marksman",
+		BaseStats: eq.BaseStats{
+			Armor:       740,
+			Agility:     37,
+			HitRating:   16,
+			AttackPower: 76,
+		},
+		Gems: eq.GemSlots{
+			SlotColors: []eq.GemColor{
+				eq.RedGem, eq.RedGem, eq.RedGem,
+			},
+			Bonus: eq.BaseStats{
+				Agility: 4,
+			},
+		},
+	}
+
+	pants["gronnstalker's leggings"] = eq.ArmorItem{
+		Name: "gronnstalker's leggings",
+		BaseStats: eq.BaseStats{
+			Agility:     37,
+			Stamina:     43,
+			Intellect:   28,
+			CritRating:  19,
+			AttackPower: 106,
+			MP5:         11,
+		},
+		Gems: eq.GemSlots{
+			SlotColors: []eq.GemColor{
+				eq.RedGem,
+			},
+			Bonus: eq.BaseStats{
+				Agility: 2,
+			},
+		},
+	}
 }

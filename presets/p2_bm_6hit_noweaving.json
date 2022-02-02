@@ -70,7 +70,7 @@
 			"Enchant": "Enchant Boots - Dexterity"
 		},
 		"RingOne": {
-			"Name": "Band of the Ranger-General",
+			"Name": "Vindicator's Band of Triumph",
 			"Gems": null,
 			"Enchant": ""
 		},
@@ -233,8 +233,8 @@
 		}
 	},
 	"Options": {
-		"SimDuration": 503,
+		"SimDuration": 200,
 		"Latency": 0,
-		"TargetArmor": 8800
+		"TargetArmor": 7700
 	}
 }

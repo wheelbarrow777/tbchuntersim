@@ -61,6 +61,15 @@ func initCloaks() {
 				HitRating: 2,
 			},
 		},
-		Enchant: eq.Enchant{},
+	}
+
+	cloaks["forest shroud of shadow protection"] = eq.ArmorItem{
+		Name: "forest shroud of shadow protection",
+		BaseStats: eq.BaseStats{
+			Stamina: 27,
+			Resistance: eq.Resistance{
+				Shadow: 17,
+			},
+		},
 	}
 }

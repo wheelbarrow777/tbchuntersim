@@ -71,6 +71,10 @@ func initEnchants() {
 		Agility: 15,
 	}
 
+	enchants["enchant weapon - greater agility"] = eq.Enchant{
+		Agility: 20,
+	}
+
 	enchants["glyph of shadow warding"] = eq.Enchant{
 		Resistance: eq.Resistance{
 			Shadow: 20,
@@ -87,6 +91,10 @@ func initEnchants() {
 		Resistance: eq.Resistance{
 			Shadow: 15,
 		},
+	}
+
+	enchants["enchant 2h weapon - major agility"] = eq.Enchant{
+		Agility: 35,
 	}
 
 	scopes["stabilized eternium scope"] = eq.Scope{

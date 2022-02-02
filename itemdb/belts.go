@@ -55,4 +55,15 @@ func initBelts() {
 			},
 		},
 	}
+
+	belts["vengeance belt of shadow protection"] = eq.ArmorItem{
+		Name: "vengeance belt of shadow protection",
+		BaseStats: eq.BaseStats{
+			Armor:   117,
+			Stamina: 30,
+			Resistance: eq.Resistance{
+				Shadow: 19,
+			},
+		},
+	}
 }

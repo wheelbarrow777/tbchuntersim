@@ -65,6 +65,11 @@ func (ss SteadyShot) calcDamage(p *player.Player) *CastResult {
 		ret.Damage = ret.Damage * TBW_MOD
 	}
 
+	// Gronnstalker (T6) Check
+	if p.Equipment.HasT6FourSet() {
+		ret.Damage = ret.Damage * T6_SS_MOD
+	}
+
 	return &ret
 }
 
