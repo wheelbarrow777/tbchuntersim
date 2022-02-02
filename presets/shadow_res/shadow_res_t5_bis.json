@@ -1,0 +1,225 @@
+{
+	"Race": "Orc",
+	"Equipment": {
+		"Helm": {
+			"Name": "Rift Stalker Helm",
+			"Gems": [
+				"Void Sphere",
+				"Relentless Earthstorm Diamond"
+			],
+			"Enchant": "Glyph of Ferocity"
+		},
+		"Neck": {
+			"Name": "Blessed Medallion of Karabor"
+		},
+		"Shoulders": {
+			"Name": "Rift Stalker Mantle",
+			"Gems": [
+				"Void Sphere",
+				"Void Sphere"
+			],
+			"Enchant": "Greater Inscription of Vengeance"
+		},
+		"Cloak": {
+			"Name": "Forest Shroud of Shadow Protection",
+			"Enchant": "Enchant Cloak - Greater Shadow Resistance"
+		},
+		"Chest": {
+			"Name": "Rift Stalker Hauberk",
+			"Gems": [
+				"Void Sphere",
+				"Void Sphere",
+				"Void Sphere"
+			],
+			"Enchant": "Shadow Armor Kit"
+		},
+		"Bracers": {
+			"Name": "Expedition Bracers of Shadow Protection",
+			"Enchant": "Enchant Bracer - Assault"
+		},
+		"Gloves": {
+			"Name": "Rift Stalker gauntlets",
+			"Enchant": "Shadow Armor Kit"
+		},
+		"Belt": {
+			"Name": "Belt of Deep Shadow",
+			"Gems": [
+				"Void Sphere",
+				"Void Sphere"
+			]
+		},
+		"Pants": {
+			"Name": "Scaled Greaves of the Marksman",
+			"Gems": [
+				"Delicate Living Ruby",
+				"Delicate Living Ruby",
+				"Delicate Living Ruby"
+			],
+			"Enchant": "Nethercobra Leg Armor"
+		},
+		"Boots": {
+			"Name": "Murkblood Boots of Shadow Protection",
+			"Enchant": "Shadow Armor Kit"
+		},
+		"RingOne": {
+			"Name": "Band of the Ranger-General"
+		},
+		"RingTwo": {
+			"Name": "ring of the recalcitrant"
+		},
+		"TrinketOne": {
+			"Name": "Bloodlust Brooch"
+		},
+		"TrinketTwo": {
+			"Name": "Dragonspine Trophy"
+		},
+		"MainHand": {
+			"Name": "Twinblade of the Phoenix",
+			"Gems": [
+				"Delicate Living Ruby",
+				"Delicate Living Ruby",
+				"Delicate Living Ruby"
+			],
+			"Enchant": "Enchant 2H Weapon - Major Agility"
+		},
+		"OffHand": {
+			"Name": "",
+			"Gems": null,
+			"Enchant": "",
+			"Oil": ""
+		},
+		"Ranged": {
+			"Name": "Serpent Spine Longbow",
+			"Scope": "Stabilized Eternium Scope"
+		},
+		"Quiver": "Clefthoof Hide Quiver",
+		"AmmoDPS": 43
+	},
+	"Consumables": {
+		"Food": "Warp Burger",
+		"BattleElixir": "Elixir of Major Agility",
+		"GuardianElixir": "Elixir of Major Mageblood",
+		"AgilityScroll": "Scroll of Agility V",
+		"StrengthScroll": "Scroll of Strength V",
+		"PetFood": "Kibler's Bits",
+		"PetScrollAgility": true,
+		"PetScrollStrenght": true
+	},
+	"ActivatedConsumables": {
+		"LeatherworkingDrums": false,
+		"HastePotion": false,
+		"ManaPotion": true
+	},
+	"Buffs": {
+		"BlessingOfKings": {
+			"Active": true
+		},
+		"BlessingOfMight": {
+			"Active": true,
+			"Improved": true
+		},
+		"BlessingOfWisdom": {
+			"Active": true,
+			"Improved": true
+		},
+		"BattleShout": {
+			"Active": true,
+			"Improved": true
+		},
+		"TrueShotAura": true,
+		"LeaderOfThePack": {
+			"Active": true,
+			"Improved": true
+		},
+		"GraceOfAirTotem": {
+			"Active": true,
+			"Improved": true
+		},
+		"StrengthOfEarthTotem": {
+			"Active": true,
+			"Improved": true
+		},
+		"ManaSpringTotem": {
+			"Active": true
+		},
+		"ArcaneBrilliance": true,
+		"GiftOfTheWild": {
+			"Active": true,
+			"Improved": true
+		},
+		"BloodLustCount": 1,
+		"FerociousInspirationCount": {
+			"ExtraHunters": 2,
+			"Uptime": 0.94
+		},
+		"PrayerOfFortitude": {
+			"Active": true,
+			"Improved": true
+		},
+		"BloodPact": {
+			"Active": true,
+			"Improved": true
+		},
+		"BraidedEterniumChain": true
+	},
+	"TargetDebuffs": {
+		"ImprovedHuntersMark": {
+			"Active": true
+		},
+		"JudgementOfWisdom": {
+			"Active": true
+		},
+		"JudgementOfTheCrusader": {
+			"Active": true
+		},
+		"CurseOfElements": {
+			"Active": true,
+			"Improved": true
+		},
+		"ExposeWeakness": {
+			"Active": true,
+			"Uptime": 0.92,
+			"Value": 284
+		},
+		"SunderArmor": {
+			"Active": true
+		},
+		"ExposeArmor": {
+			"Active": true,
+			"Improved": true
+		},
+		"CurseOfRecklessness": {
+			"Active": true
+		},
+		"FaeriFire": {
+			"Active": true,
+			"Improved": true
+		},
+		"Misery": {
+			"Active": true
+		},
+		"BloodFrenzy": {
+			"Active": true
+		}
+	},
+	"Talents": {
+		"BM": {
+			"SerpentsSwiftness": 5,
+			"FerociousInspiration": 3
+		},
+		"MM": {
+			"TrueshotAura": 0,
+			"LethalShots": 5,
+			"MortalShots": 5,
+			"CarefulAim": 0
+		},
+		"SV": {
+			"KillerInstinct": 0
+		}
+	},
+	"Options": {
+		"SimDuration": 250,
+		"Latency": 0,
+		"TargetArmor": 7700
+	}
+}

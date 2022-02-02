@@ -1,0 +1,213 @@
+{
+	"Race": "orc",
+	"Equipment": {
+		"Helm": {
+			"Name": "Cogspinner Goggles of Shadow",
+			"Enchant": "glyph of shadow warding"
+		},
+		"Neck": {
+			"Name": "Medallion of Karabor"
+		},
+		"Shoulders": {
+			"Name": "Beast lord mantle",
+			"Gems": [
+				"void sphere",
+				"void sphere"
+			],
+			"Enchant": "Greater Inscription of Vengeance"
+		},
+		"Cloak": {
+			"Name": "Abyssal Shroud",
+			"Enchant": "Enchant Cloak - Greater Shadow Resistance"
+		},
+		"Chest": {
+			"Name": "Beast Lord Cuirass",
+			"Gems": [
+				"void sphere",
+				"void sphere",
+				"void sphere"
+			],
+			"Enchant": "Shadow Armor Kit"
+		},
+		"Bracers": {
+			"Name": "Vambraces of Ending",
+			"Gems": [
+				"delicate living ruby"
+			],
+			"Enchant": "Enchant Bracer - Assault"
+		},
+		"Gloves": {
+			"Name": "Beast Lord Handguards",
+			"Gems": [
+				"void sphere",
+				"void sphere"
+			],
+			"Enchant": "Shadow Armor Kit"
+		},
+		"Belt": {
+			"Name": "vengeance belt of shadow protection"
+		},
+		"Pants": {
+			"Name": "Beast Lord Leggings",
+			"Enchant": "Shadow Armor Kit"
+		},
+		"Boots": {
+			"Name": "Rocket Boots Xtreme",
+			"Enchant": "Shadow Armor Kit"
+		},
+		"RingOne": {
+			"Name": "Ring of the Recalcitrant"
+		},
+		"RingTwo": {
+			"Name": "Ring of a Thousand Marks"
+		},
+		"TrinketOne": {
+			"Name": "Bloodlust Brooch"
+		},
+		"TrinketTwo": {
+			"Name": "Dragonspine Trophy"
+		},
+		"MainHand": {
+			"Name": "Stellaris",
+			"Enchant": "Enchant Weapon - Agility"
+		},
+		"OffHand": {
+			"Name": "Stormreaver Warblades",
+			"Enchant": "Enchant Weapon - Agility",
+			"Oil": "Adamantite Weightstone"
+		},
+		"Ranged": {
+			"Name": "Serpent Spine Longbow",
+			"Scope": "stabilized eternium scope"
+		},
+		"Quiver": "Clefthoof Hide Quiver",
+		"AmmoDPS": 43
+	},
+	"Consumables": {
+		"Food": "Warp Burger",
+		"BattleElixir": "Elixir of Major Agility",
+		"GuardianElixir": "Elixir of Major Mageblood",
+		"AgilityScroll": "Scroll of Agility V",
+		"StrengthScroll": "Scroll of Strength V",
+		"PetFood": "Kibler's Bits",
+		"PetScrollAgility": true,
+		"PetScrollStrenght": true
+	},
+	"ActivatedConsumables": {
+		"LeatherworkingDrums": false,
+		"HastePotion": false,
+		"ManaPotion": true
+	},
+	"Buffs": {
+		"BlessingOfKings": {
+			"Active": true
+		},
+		"BlessingOfMight": {
+			"Active": true,
+			"Improved": true
+		},
+		"BlessingOfWisdom": {
+			"Active": true,
+			"Improved": true
+		},
+		"BattleShout": {
+			"Active": true,
+			"Improved": true
+		},
+		"TrueShotAura": true,
+		"LeaderOfThePack": {
+			"Active": true,
+			"Improved": true
+		},
+		"GraceOfAirTotem": {
+			"Active": true,
+			"Improved": true
+		},
+		"StrengthOfEarthTotem": {
+			"Active": true,
+			"Improved": true
+		},
+		"ManaSpringTotem": {
+			"Active": true
+		},
+		"ArcaneBrilliance": true,
+		"GiftOfTheWild": {
+			"Active": true,
+			"Improved": true
+		},
+		"BloodLustCount": 1,
+		"FerociousInspirationCount": {
+			"ExtraHunters": 2,
+			"Uptime": 0.94
+		},
+		"PrayerOfFortitude": {
+			"Active": true,
+			"Improved": true
+		},
+		"BloodPact": {
+			"Active": true,
+			"Improved": true
+		},
+		"BraidedEterniumChain": true
+	},
+	"TargetDebuffs": {
+		"ImprovedHuntersMark": {
+			"Active": true
+		},
+		"JudgementOfWisdom": {
+			"Active": true
+		},
+		"JudgementOfTheCrusader": {
+			"Active": true
+		},
+		"CurseOfElements": {
+			"Active": true,
+			"Improved": true
+		},
+		"ExposeWeakness": {
+			"Active": true,
+			"Uptime": 0.92,
+			"Value": 284
+		},
+		"SunderArmor": {
+			"Active": true
+		},
+		"ExposeArmor": {
+			"Active": true,
+			"Improved": true
+		},
+		"CurseOfRecklessness": {
+			"Active": true
+		},
+		"FaeriFire": {
+			"Active": true,
+			"Improved": true
+		},
+		"Misery": {
+			"Active": true
+		},
+		"BloodFrenzy": {
+			"Active": true
+		}
+	},
+	"Talents": {
+		"BM": {
+			"SerpentsSwiftness": 5,
+			"FerociousInspiration": 3
+		},
+		"MM": {
+			"TrueshotAura": 0,
+			"LethalShots": 5,
+			"MortalShots": 5,
+			"CarefulAim": 0
+		},
+		"SV": {
+			"KillerInstinct": 0
+		}
+	},
+	"Options": {
+		"SimDuration": 250,
+		"Latency": 0,
+		"TargetArmor": 7700
+	}
+}
