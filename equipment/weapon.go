@@ -24,11 +24,11 @@ type Scope struct {
 type RangedWeapon struct {
 	Weapon
 	Scope   Scope
-	AmmoDPS int
+	AmmoDPS float64
 }
 
 func (w RangedWeapon) AmmoDamage() float64 {
-	return w.Speed * float64(w.AmmoDPS)
+	return w.Speed * w.AmmoDPS
 }
 
 func (w RangedWeapon) AverageDamage() float64 {

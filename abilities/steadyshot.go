@@ -65,6 +65,11 @@ func (ss SteadyShot) calcDamage(p *player.Player) *CastResult {
 		ret.Damage = ret.Damage * TBW_MOD
 	}
 
+	// Gronnstalker (T6) Check
+	if p.Equipment.HasT6FourSet() {
+		ret.Damage = ret.Damage * T6_SS_MOD
+	}
+
 	return &ret
 }
 
@@ -75,7 +80,6 @@ func (ss *SteadyShot) CalcCooldown(p *player.Player, opts *CalcCooldownOpts) flo
 		gcdOffset := 0.0
 		if opts.LastHadGCD {
 			gcdOffset = opts.GCDTmeRev(0) - opts.ItTimeRev(0)
-			log.Warn("GCD")
 		}
 		ss.CurrentCooldown = math.Max(ss.CurrentCooldown-opts.ItTimeRev(0)-opts.ItTimeRev(2)+gcdOffset, 0)
 	}

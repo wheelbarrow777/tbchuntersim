@@ -78,49 +78,55 @@ const (
 	RedGem    = "red"
 	BlueGem   = "blue"
 	YellowGem = "yellow"
+	GreenGem  = "green"
 	MetaGem   = "meta"
 	Purple    = "purple"
 	Orange    = "orange"
+	Prismatic = "prismatic"
 )
 
-func (first GemColor) validSlot(second GemColor) bool {
-	if first == RedGem {
-		if second == RedGem || second == Orange || second == Purple {
+func (slot GemColor) validSlot(gem GemColor) bool {
+	if gem == Prismatic {
+		return true
+	}
+
+	if slot == RedGem {
+		if gem == RedGem || gem == Orange || gem == Purple {
 			return true
 		} else {
 			return false
 		}
 	}
 
-	if first == BlueGem {
-		if second == BlueGem || second == Purple {
+	if slot == BlueGem {
+		if gem == BlueGem || gem == Purple || gem == GreenGem {
 			return true
 		} else {
 			return false
 		}
 	}
 
-	if first == YellowGem {
-		if second == YellowGem || second == Orange {
+	if slot == YellowGem {
+		if gem == YellowGem || gem == Orange || gem == GreenGem {
 			return true
 		} else {
 			return false
 		}
 	}
 
-	if first == MetaGem {
-		return second == MetaGem
+	if slot == MetaGem {
+		return gem == MetaGem
 	}
 
 	log.WithFields(log.Fields{
-		"FirstGem":  first,
-		"SecondGem": second,
+		"FirstGem":  slot,
+		"SecondGem": gem,
 	}).Warn("Attempted to check if a non-main gem fit in a slot")
 	return false
 }
 
 func (g GemColor) isHybrid() bool {
-	if g == Purple || g == Orange {
+	if g == Purple || g == Orange || g == Prismatic || g == GreenGem {
 		return true
 	} else {
 		return false

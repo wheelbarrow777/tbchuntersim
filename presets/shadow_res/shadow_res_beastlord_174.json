@@ -2,39 +2,32 @@
 	"Race": "orc",
 	"Equipment": {
 		"Helm": {
-			"Name": "rift stalker helm",
-			"Gems": [
-				"bold ornate ruby",
-				"Relentless Earthstorm Diamond"
-			],
-			"Enchant": "glyph of ferocity"
+			"Name": "Cogspinner Goggles of Shadow",
+			"Enchant": "glyph of shadow warding"
 		},
 		"Neck": {
-			"Name": "Telonicus's Pendant of Mayhem",
-			"Gems": null,
-			"Enchant": ""
+			"Name": "Medallion of Karabor"
 		},
 		"Shoulders": {
-			"Name": "Rift Stalker Mantle",
+			"Name": "Beast lord mantle",
 			"Gems": [
-				"delicate living ruby",
-				"delicate living ruby"
+				"void sphere",
+				"void sphere"
 			],
 			"Enchant": "Greater Inscription of Vengeance"
 		},
 		"Cloak": {
-			"Name": "Thalassian Wildercloak",
-			"Gems": null,
-			"Enchant": "Enchant Cloak - Greater Agility"
+			"Name": "Abyssal Shroud",
+			"Enchant": "Enchant Cloak - Greater Shadow Resistance"
 		},
 		"Chest": {
-			"Name": "Rift Stalker Hauberk",
+			"Name": "Beast Lord Cuirass",
 			"Gems": [
-				"Shifting Tanzanite",
-				"Glinting Fire Opal",
-				"Inscribed Ornate Topaz"
+				"void sphere",
+				"void sphere",
+				"void sphere"
 			],
-			"Enchant": "Enchant Chest - Exceptional Stats"
+			"Enchant": "Shadow Armor Kit"
 		},
 		"Bracers": {
 			"Name": "Vambraces of Ending",
@@ -44,67 +37,47 @@
 			"Enchant": "Enchant Bracer - Assault"
 		},
 		"Gloves": {
-			"Name": "Rift Stalker Gauntlets",
-			"Gems": null,
-			"Enchant": "Enchant Gloves - Superior Agility"
+			"Name": "Beast Lord Handguards",
+			"Gems": [
+				"void sphere",
+				"void sphere"
+			],
+			"Enchant": "Shadow Armor Kit"
 		},
 		"Belt": {
-			"Name": "Belt of Deep Shadow",
-			"Gems": [
-				"delicate living ruby",
-				"delicate living ruby"
-			],
-			"Enchant": ""
+			"Name": "vengeance belt of shadow protection"
 		},
 		"Pants": {
-			"Name": "Leggings of Murderous Intent",
-			"Gems": null,
-			"Enchant": "Nethercobra Leg Armor"
+			"Name": "Beast Lord Leggings",
+			"Enchant": "Shadow Armor Kit"
 		},
 		"Boots": {
-			"Name": "Cobra-Lash Boots",
-			"Gems": [
-				"Shifting Nightseye",
-				"delicate living ruby"
-			],
-			"Enchant": "Enchant Boots - Dexterity"
+			"Name": "Rocket Boots Xtreme",
+			"Enchant": "Shadow Armor Kit"
 		},
 		"RingOne": {
-			"Name": "Vindicator's Band of Triumph",
-			"Gems": null,
-			"Enchant": ""
+			"Name": "Ring of the Recalcitrant"
 		},
 		"RingTwo": {
-			"Name": "Ring of the Recalcitrant",
-			"Gems": null,
-			"Enchant": ""
+			"Name": "Ring of a Thousand Marks"
 		},
 		"TrinketOne": {
-			"Name": "Bloodlust Brooch",
-			"Gems": null,
-			"Enchant": ""
+			"Name": "Bloodlust Brooch"
 		},
 		"TrinketTwo": {
-			"Name": "Dragonspine Trophy",
-			"Gems": null,
-			"Enchant": ""
+			"Name": "Dragonspine Trophy"
 		},
 		"MainHand": {
-			"Name": "Talon of the Phoenix",
-			"Gems": null,
-			"Enchant": "Enchant Weapon - Agility",
-			"Oil": "Adamantite Weightstone"
+			"Name": "Stellaris",
+			"Enchant": "Enchant Weapon - Agility"
 		},
 		"OffHand": {
-			"Name": "Claw of the Phoenix",
-			"Gems": null,
+			"Name": "Stormreaver Warblades",
 			"Enchant": "Enchant Weapon - Agility",
 			"Oil": "Adamantite Weightstone"
 		},
 		"Ranged": {
 			"Name": "Serpent Spine Longbow",
-			"Gems": null,
-			"Enchant": "",
 			"Scope": "stabilized eternium scope"
 		},
 		"Quiver": "Clefthoof Hide Quiver",
@@ -121,9 +94,9 @@
 		"PetScrollStrenght": true
 	},
 	"ActivatedConsumables": {
-		"LeatherworkingDrums": true,
-		"HastePotion": true,
-		"ManaPotion": false
+		"LeatherworkingDrums": false,
+		"HastePotion": false,
+		"ManaPotion": true
 	},
 	"Buffs": {
 		"BlessingOfKings": {
@@ -233,7 +206,7 @@
 		}
 	},
 	"Options": {
-		"SimDuration": 200,
+		"SimDuration": 250,
 		"Latency": 0,
 		"TargetArmor": 7700
 	}

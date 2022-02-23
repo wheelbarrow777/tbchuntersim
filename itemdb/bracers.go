@@ -54,4 +54,27 @@ func initBracers() {
 			AttackPower: 46,
 		},
 	}
+
+	bracers["expedition bracers of shadow protection"] = eq.ArmorItem{
+		Name: "expedition bracers of shadow protection",
+		BaseStats: eq.BaseStats{
+			Armor:       118,
+			Stamina:     31,
+			AttackPower: 24,
+			Resistance: eq.Resistance{
+				Shadow: 20,
+			},
+		},
+	}
+
+	bracers["skettis bracer of shadow protection"] = eq.ArmorItem{
+		Name: "skettis bracer of shadow protection",
+		BaseStats: eq.BaseStats{
+			Armor:   251,
+			Stamina: 29,
+			Resistance: eq.Resistance{
+				Shadow: 19,
+			},
+		},
+	}
 }

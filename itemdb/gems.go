@@ -112,4 +112,28 @@ func initGems() {
 		},
 	}
 
+	gems["void sphere"] = eq.Gem{
+		Name:  "void sphere",
+		Color: eq.Prismatic,
+		BaseStats: eq.BaseStats{
+			Resistance: eq.Resistance{
+				Frost:  4,
+				Shadow: 4,
+				Fire:   4,
+				Nature: 4,
+				Arcane: 4,
+			},
+		},
+	}
+
+	gems["jagged seaspray emerald"] = eq.Gem{
+		Name:  "jagged seaspray emerald",
+		Color: eq.BlueGem,
+	}
+
+	gems["delicate crimson spinel"] = eq.Gem{
+		Name:  "delicate crimson spinel",
+		Color: eq.RedGem,
+	}
+
 }

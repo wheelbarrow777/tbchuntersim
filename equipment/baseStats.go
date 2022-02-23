@@ -3,6 +3,9 @@ package equipment
 type Resistance struct {
 	Frost  int
 	Shadow int
+	Fire   int
+	Nature int
+	Arcane int
 }
 
 type BaseStats struct {

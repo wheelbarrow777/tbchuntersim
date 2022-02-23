@@ -69,4 +69,46 @@ func initHelmets() {
 			},
 		},
 	}
+
+	helmets["cursed vision of sargeras"] = eq.ArmorItem{
+		Name: "cursed vision of sargeras",
+		BaseStats: eq.BaseStats{
+			Armor:       385,
+			Agility:     39,
+			Stamina:     46,
+			HitRating:   21,
+			CritRating:  38,
+			AttackPower: 108,
+		},
+		Gems: eq.GemSlots{
+			SlotColors: []eq.GemColor{
+				eq.MetaGem,
+				eq.YellowGem,
+			},
+			Bonus: eq.BaseStats{
+				Stamina: 6,
+			},
+		},
+	}
+
+	helmets["gronnstalker's helmet"] = eq.ArmorItem{
+		Name: "gronnstalker's helmet",
+		BaseStats: eq.BaseStats{
+			Armor:       830,
+			Agility:     45,
+			Stamina:     45,
+			Intellect:   29,
+			AttackPower: 90,
+			MP5:         8,
+		},
+		Gems: eq.GemSlots{
+			SlotColors: []eq.GemColor{
+				eq.RedGem,
+				eq.MetaGem,
+			},
+			Bonus: eq.BaseStats{
+				CritRating: 4,
+			},
+		},
+	}
 }

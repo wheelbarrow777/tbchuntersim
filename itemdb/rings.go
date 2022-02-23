@@ -56,4 +56,33 @@ func initRings() {
 			},
 		},
 	}
+
+	rings["vindicator's band of triumph"] = eq.ArmorItem{
+		Name: "vindicator's band of triumph",
+		BaseStats: eq.BaseStats{
+			Stamina:          34,
+			CritRating:       26,
+			AttackPower:      44,
+			ArmorPenetration: 56,
+		},
+	}
+
+	rings["blue topaz band of shadow protection"] = eq.ArmorItem{
+		Name: "blue topaz band of shadow protection",
+		BaseStats: eq.BaseStats{
+			Stamina: 26,
+			Resistance: eq.Resistance{
+				Shadow: 17,
+			},
+		},
+	}
+
+	rings["band of eternity"] = eq.ArmorItem{
+		Name: "band of eternity",
+		BaseStats: eq.BaseStats{
+			Agility:     29,
+			Stamina:     43,
+			AttackPower: 60,
+		},
+	}
 }

@@ -46,4 +46,23 @@ func initNecklaces() {
 			},
 		},
 	}
+
+	neck["choker of endless nightmares"] = eq.ArmorItem{
+		Name: "Choker of Endless Nightmares",
+		BaseStats: eq.BaseStats{
+			HasteRating: 21,
+			CritRating:  27,
+			AttackPower: 72,
+		},
+	}
+
+	neck["blessed medallion of karabor"] = eq.ArmorItem{
+		Name: "blessed medallion of karabor",
+		BaseStats: eq.BaseStats{
+			Stamina: 49,
+			Resistance: eq.Resistance{
+				Shadow: 40,
+			},
+		},
+	}
 }

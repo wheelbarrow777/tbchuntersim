@@ -161,3 +161,32 @@ func (eq Equipment) HasT5FourSet() bool {
 	}
 	return numPieces >= 4
 }
+
+func (eq Equipment) HasT6FourSet() bool {
+	numPieces := 0
+	if eq.Chest.Name == "gronnstalker's chestguard" {
+		numPieces++
+	}
+	if eq.Gloves.Name == "gronnstalker's gloves" {
+		numPieces++
+	}
+	if eq.Helm.Name == "gronnstalker's helmet" {
+		numPieces++
+	}
+	if eq.Pants.Name == "gronnstalker's leggings" {
+		numPieces++
+	}
+	if eq.Shoulders.Name == "gronnstalker's spaulders" {
+		numPieces++
+	}
+	if eq.Belt.Name == "gronnstalker's belt" {
+		numPieces++
+	}
+	if eq.Bracers.Name == "gronnstalker's bracers" {
+		numPieces++
+	}
+	if eq.Boots.Name == "gronnstalker's boots" {
+		numPieces++
+	}
+	return numPieces >= 4
+}

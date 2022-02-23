@@ -43,4 +43,12 @@ func initTrinkets() {
 		Name:      "gnomish battle chicken",
 		BaseStats: eq.BaseStats{},
 	}
+
+	trinkets["madness of the betrayer"] = eq.ArmorItem{
+		Name: "madness of the betrayer",
+		BaseStats: eq.BaseStats{
+			HitRating:   20,
+			AttackPower: 84,
+		},
+	}
 }
