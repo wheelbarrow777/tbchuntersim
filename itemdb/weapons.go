@@ -164,6 +164,35 @@ func initWeapons() {
 		},
 	}
 
+	meleeWeapons["boundless agony"] = eq.Weapon{
+		DamageMin:   144,
+		DamageMax:   217,
+		Speed:       1.8,
+		IsTwoHanded: false,
+		ArmorItem: eq.ArmorItem{
+			Name: "boundless agony",
+			BaseStats: eq.BaseStats{
+				CritRating:       24,
+				ArmorPenetration: 210,
+			},
+		},
+	}
+
+	meleeWeapons["tracker's blade"] = eq.Weapon{
+		DamageMin:   105,
+		DamageMax:   196,
+		Speed:       1.5,
+		IsTwoHanded: false,
+		ArmorItem: eq.ArmorItem{
+			Name: "tracker's blade",
+			BaseStats: eq.BaseStats{
+				HitRating:   20,
+				CritRating:  23,
+				AttackPower: 44,
+			},
+		},
+	}
+
 	rangedWeapons["sunfury bow of the phoenix"] = eq.RangedWeapon{
 		Weapon: eq.Weapon{
 			ArmorItem: eq.ArmorItem{

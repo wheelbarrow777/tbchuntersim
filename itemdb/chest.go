@@ -69,4 +69,24 @@ func initChests() {
 			},
 		},
 	}
+
+	chests["gronnstalker's chestguard"] = eq.ArmorItem{
+		Name: "gronnstalker's chestguard",
+		BaseStats: eq.BaseStats{
+			Armor:       1022,
+			Agility:     40,
+			Stamina:     52,
+			Intellect:   37,
+			CritRating:  19,
+			AttackPower: 90,
+		},
+		Gems: eq.GemSlots{
+			SlotColors: []eq.GemColor{
+				eq.RedGem, eq.YellowGem, eq.YellowGem,
+			},
+			Bonus: eq.BaseStats{
+				Agility: 4,
+			},
+		},
+	}
 }

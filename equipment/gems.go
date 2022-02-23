@@ -78,6 +78,7 @@ const (
 	RedGem    = "red"
 	BlueGem   = "blue"
 	YellowGem = "yellow"
+	GreenGem  = "green"
 	MetaGem   = "meta"
 	Purple    = "purple"
 	Orange    = "orange"
@@ -98,7 +99,7 @@ func (slot GemColor) validSlot(gem GemColor) bool {
 	}
 
 	if slot == BlueGem {
-		if gem == BlueGem || gem == Purple {
+		if gem == BlueGem || gem == Purple || gem == GreenGem {
 			return true
 		} else {
 			return false
@@ -106,7 +107,7 @@ func (slot GemColor) validSlot(gem GemColor) bool {
 	}
 
 	if slot == YellowGem {
-		if gem == YellowGem || gem == Orange {
+		if gem == YellowGem || gem == Orange || gem == GreenGem {
 			return true
 		} else {
 			return false
@@ -125,7 +126,7 @@ func (slot GemColor) validSlot(gem GemColor) bool {
 }
 
 func (g GemColor) isHybrid() bool {
-	if g == Purple || g == Orange || g == Prismatic {
+	if g == Purple || g == Orange || g == Prismatic || g == GreenGem {
 		return true
 	} else {
 		return false

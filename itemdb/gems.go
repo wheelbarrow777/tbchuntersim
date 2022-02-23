@@ -126,4 +126,14 @@ func initGems() {
 		},
 	}
 
+	gems["jagged seaspray emerald"] = eq.Gem{
+		Name:  "jagged seaspray emerald",
+		Color: eq.BlueGem,
+	}
+
+	gems["delicate crimson spinel"] = eq.Gem{
+		Name:  "delicate crimson spinel",
+		Color: eq.RedGem,
+	}
+
 }

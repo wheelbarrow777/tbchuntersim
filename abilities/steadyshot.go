@@ -80,7 +80,6 @@ func (ss *SteadyShot) CalcCooldown(p *player.Player, opts *CalcCooldownOpts) flo
 		gcdOffset := 0.0
 		if opts.LastHadGCD {
 			gcdOffset = opts.GCDTmeRev(0) - opts.ItTimeRev(0)
-			log.Warn("GCD")
 		}
 		ss.CurrentCooldown = math.Max(ss.CurrentCooldown-opts.ItTimeRev(0)-opts.ItTimeRev(2)+gcdOffset, 0)
 	}

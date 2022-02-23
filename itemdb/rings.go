@@ -80,9 +80,9 @@ func initRings() {
 	rings["band of eternity"] = eq.ArmorItem{
 		Name: "band of eternity",
 		BaseStats: eq.BaseStats{
-			Agility:     25,
-			Stamina:     37,
-			AttackPower: 50,
+			Agility:     29,
+			Stamina:     43,
+			AttackPower: 60,
 		},
 	}
 }

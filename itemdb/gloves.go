@@ -49,4 +49,17 @@ func initGloves() {
 			AttackPower: 68,
 		},
 	}
+
+	gloves["gronnstalker's gloves"] = eq.ArmorItem{
+		Name:      "gronnstalker's gloves",
+		BaseStats: eq.BaseStats{Armor: 639, Agility: 35, Stamina: 31, Intellect: 21, CritRating: 13, AttackPower: 62, ArmorPenetration: 140},
+		Gems: eq.GemSlots{
+			SlotColors: []eq.GemColor{
+				eq.RedGem,
+			},
+			Bonus: eq.BaseStats{
+				CritRating: 2,
+			},
+		},
+	}
 }
