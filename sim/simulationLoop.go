@@ -6,6 +6,7 @@ import (
 	"sort"
 	"tbchuntersim/abilities"
 	"tbchuntersim/consumables/potions"
+	"tbchuntersim/equipment/rings"
 	"tbchuntersim/equipment/trinkets"
 	"tbchuntersim/player"
 	"tbchuntersim/preset"
@@ -62,15 +63,22 @@ func RunSimulationLoop(opts preset.SimOptions, p player.Player) *LoopResult {
 	}
 
 	// Add abilities based on items
-	if p.Equipment.TrinketOne.Name == "dragonspine trophy" || p.Equipment.TrinketTwo.Name == "dragonspine trophy" {
+	if p.Equipment.HasTrinket("dragonspine trophy") {
 		abilityPriority = append(abilityPriority, newSimAbility(trinkets.NewDST(), "DST"))
 	}
-	if p.Equipment.TrinketOne.Name == "bloodlust brooch" || p.Equipment.TrinketTwo.Name == "bloodlust brooch" {
+	if p.Equipment.HasTrinket("bloodlust brooch") {
 		abilityPriority = append(abilityPriority, newSimAbility(trinkets.NewBloodlustBrooch(), "Bloodlust Brooch"))
 	}
-	if p.Equipment.TrinketOne.Name == "madness of the betrayer" || p.Equipment.TrinketTwo.Name == "madness of the betrayer" {
+	if p.Equipment.HasTrinket("madness of the betrayer") {
 		abilityPriority = append(abilityPriority, newSimAbility(trinkets.NewMadness(), "Madness of the Betrayer"))
 	}
+	if p.Equipment.HasTrinket("berserker's call") {
+		abilityPriority = append(abilityPriority, newSimAbility(trinkets.NewBerserkersCall(), "Berserker's Call"))
+	}
+	if p.Equipment.HasRing("band of the eternal champion") {
+		abilityPriority = append(abilityPriority, newSimAbility(rings.NewBand(), "Band of the Eternal Champion"))
+	}
+
 	if p.ActivatedConsumables.LeatherworkingDrums {
 		abilityPriority = append(abilityPriority, newSimAbility(potions.NewLeatherworkingDrums(), "Leatherworking Drums"))
 	}
@@ -193,12 +201,11 @@ func RunSimulationLoop(opts preset.SimOptions, p player.Player) *LoopResult {
 		simRes.Mana = append(simRes.Mana, p.CurrentMana)
 
 		// Log uptimes
-		if p.Equipment.TrinketOne.Name == "madness of the betrayer" || p.Equipment.TrinketTwo.Name == "madness of the betrayer" {
-			if p.Am.TimerModifiers.Madness > 0 {
-				simRes.MadnessUptimeData = append(simRes.MadnessUptimeData, true)
-			} else {
-				simRes.MadnessUptimeData = append(simRes.MadnessUptimeData, false)
-			}
+		if p.Equipment.HasTrinket("madness of the betrayer") {
+			simRes.MadnessUptimeData = append(simRes.MadnessUptimeData, p.Am.TimerModifiers.Madness > 0)
+		}
+		if p.Equipment.HasRing("band of the eternal champion") {
+			simRes.BandUptimeDelta = append(simRes.BandUptimeDelta, p.Am.TimerModifiers.BandOfTheEternalChampion > 0)
 		}
 
 		log.WithFields(log.Fields{

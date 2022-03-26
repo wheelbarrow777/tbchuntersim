@@ -33,11 +33,11 @@ func (col ResultConnection) DPS() float64 {
 	return dps / float64(len(col.results))
 }
 
-func (col ResultConnection) MadnessUptime() float64 {
+func (col ResultConnection) ItemUptime(name string) float64 {
 	total := 0.0
 	its := 0.0
 	for _, v := range col.results {
-		total += v.MadnessUptime()
+		total += v.ItemUptime(name)
 		its++
 	}
 

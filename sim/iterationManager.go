@@ -73,8 +73,11 @@ func RunSimulation(opts *RunSimulationOpts) {
 	col.AbilityBreakdownTable(os.Stdout)
 	fmt.Printf("\n\n")
 
-	if p.Equipment.TrinketOne.Name == "madness of the betrayer" || p.Equipment.TrinketTwo.Name == "madness of the betrayer" {
-		log.Infof("Madness Uptime %f", col.MadnessUptime())
+	if p.Equipment.HasTrinket("madness of the betrayer") {
+		log.Infof("Madness Uptime %f", col.ItemUptime("madness of the betrayer"))
+	}
+	if p.Equipment.HasRing("band of the eternal champion") {
+		log.Infof("Band Uptime %f", col.ItemUptime("band of the eternal champion"))
 	}
 
 	DPS := col.DPS()

@@ -85,4 +85,23 @@ func initRings() {
 			AttackPower: 60,
 		},
 	}
+
+	rings["signet of primal wrath"] = eq.ArmorItem{
+		Name: "signet of primal wrath",
+		BaseStats: eq.BaseStats{
+			Agility:          28,
+			Stamina:          30,
+			AttackPower:      58,
+			ArmorPenetration: 126,
+		},
+	}
+
+	rings["band of the eternal champion"] = eq.ArmorItem{
+		Name: "band of the eternal champion",
+		BaseStats: eq.BaseStats{
+			Agility:     29,
+			Stamina:     43,
+			AttackPower: 60,
+		},
+	}
 }

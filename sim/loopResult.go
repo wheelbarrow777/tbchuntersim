@@ -21,6 +21,7 @@ type LoopResult struct {
 	RangedAttackSpeed []float64
 	Ability           map[string]AbilityDetails
 	MadnessUptimeData []bool
+	BandUptimeDelta   []bool
 }
 
 func (sr LoopResult) flooredTime() []int {
@@ -67,14 +68,20 @@ func (sr LoopResult) MadnessUptimeChart(filename string) {
 	line.Render(f)
 }
 
-func (sr LoopResult) MadnessUptime() float64 {
+func (sr LoopResult) ItemUptime(name string) float64 {
 	// Divide into second buckets
 
 	var uptimeAtSecond = make([]bool, int(sr.Time[len(sr.Time)-1])+1)
-	for i, uptimeTick := range sr.MadnessUptimeData {
-		if uptimeTick {
-			uptimeAtSecond[int(sr.Time[i])] = true
-		}
+	var targetTrinketSlice []bool
+
+	if name == "madness of the betrayer" {
+		targetTrinketSlice = sr.MadnessUptimeData
+	} else if name == "band of the eternal champion" {
+		targetTrinketSlice = sr.BandUptimeDelta
+	}
+
+	for i, uptimeTick := range targetTrinketSlice {
+		uptimeAtSecond[int(sr.Time[i])] = uptimeTick
 	}
 
 	// Loop through all buckets, find how many seconds were active

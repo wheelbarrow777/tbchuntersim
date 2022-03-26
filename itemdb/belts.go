@@ -66,4 +66,16 @@ func initBelts() {
 			},
 		},
 	}
+
+	belts["boneweave girdle"] = eq.ArmorItem{
+		Name: "boneweave girdle",
+		BaseStats: eq.BaseStats{
+			Armor:       556,
+			Agility:     38,
+			Intellect:   26,
+			HitRating:   17,
+			CritRating:  24,
+			AttackPower: 76,
+		},
+	}
 }

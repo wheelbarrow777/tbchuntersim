@@ -153,6 +153,14 @@ func (p Player) EffectiveAP() float64 {
 		base += 278
 	}
 
+	if p.Am.TimerModifiers.BerserkersCall > 0 {
+		base += 360
+	}
+
+	if p.Am.TimerModifiers.BandOfTheEternalChampion > 0 {
+		base += 160
+	}
+
 	if p.TargetDebuffs.ExposeWeakness.Active {
 		base += p.TargetDebuffs.ExposeWeakness.Uptime * float64(p.TargetDebuffs.ExposeWeakness.Value)
 	}

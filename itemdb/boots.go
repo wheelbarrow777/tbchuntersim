@@ -106,4 +106,40 @@ func initBoots() {
 			},
 		},
 	}
+
+	boots["nyn'jah's tabi boots"] = eq.ArmorItem{
+		Name: "nyn'jah's tabi boots",
+		BaseStats: eq.BaseStats{
+			Armor:       278,
+			Agility:     29,
+			Stamina:     21,
+			HitRating:   22,
+			AttackPower: 60,
+		},
+		Gems: eq.GemSlots{
+			SlotColors: []eq.GemColor{
+				eq.BlueGem, eq.RedGem,
+			},
+			Bonus: eq.BaseStats{
+				HitRating: 3,
+			},
+		},
+	}
+
+	boots["shadowmaster's boots"] = eq.ArmorItem{
+		Name: "shadowmaster's boots",
+		BaseStats: eq.BaseStats{
+			Armor:       305,
+			Agility:     30,
+			Stamina:     38,
+			CritRating:  17,
+			AttackPower: 76,
+		},
+		Gems: eq.GemSlots{
+			SlotColors: []eq.GemColor{eq.RedGem, eq.YellowGem},
+			Bonus: eq.BaseStats{
+				CritRating: 3,
+			},
+		},
+	}
 }

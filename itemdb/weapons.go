@@ -193,6 +193,21 @@ func initWeapons() {
 		},
 	}
 
+	meleeWeapons["dagger of bad mojo"] = eq.Weapon{
+		DamageMin:   137,
+		DamageMax:   207,
+		Speed:       1.8,
+		IsTwoHanded: false,
+		ArmorItem: eq.ArmorItem{
+			Name: "dagger of bad mojo",
+			BaseStats: eq.BaseStats{
+				Agility:          21,
+				AttackPower:      40,
+				ArmorPenetration: 140,
+			},
+		},
+	}
+
 	rangedWeapons["sunfury bow of the phoenix"] = eq.RangedWeapon{
 		Weapon: eq.Weapon{
 			ArmorItem: eq.ArmorItem{
@@ -226,7 +241,27 @@ func initWeapons() {
 		},
 	}
 
+	rangedWeapons["bristleblitz striker"] = eq.RangedWeapon{
+		Weapon: eq.Weapon{
+			DamageMin:   201,
+			DamageMax:   374,
+			Speed:       3.0,
+			IsTwoHanded: false,
+			ArmorItem: eq.ArmorItem{
+				Name: "bristleblitz striker",
+				BaseStats: eq.BaseStats{
+					Stamina:    28,
+					CritRating: 25,
+				},
+			},
+		},
+	}
+
 	quivers["clefthoof hide quiver"] = eq.Quiver{
 		Speed: 1.15,
+	}
+
+	quivers["quiver of a thousand feathers"] = eq.Quiver{
+		Speed: 1.5,
 	}
 }

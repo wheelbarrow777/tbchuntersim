@@ -77,4 +77,21 @@ func initBracers() {
 			},
 		},
 	}
+
+	bracers["insidious bands"] = eq.ArmorItem{
+		Name: "insidious bands",
+		BaseStats: eq.BaseStats{
+			Armor:       194,
+			Agility:     28,
+			Stamina:     28,
+			HitRating:   12,
+			AttackPower: 58,
+		},
+		Gems: eq.GemSlots{
+			SlotColors: []eq.GemColor{eq.YellowGem},
+			Bonus: eq.BaseStats{
+				Agility: 2,
+			},
+		},
+	}
 }

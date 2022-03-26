@@ -111,4 +111,21 @@ func initHelmets() {
 			},
 		},
 	}
+
+	helmets["vengeful gladiator's chain helm"] = eq.ArmorItem{
+		Name: "vengeful gladiator's chain helm",
+		BaseStats: eq.BaseStats{
+			Armor:            830,
+			Agility:          33,
+			Stamina:          61,
+			Intellect:        22,
+			HitRating:        12,
+			CritRating:       26,
+			AttackPower:      58,
+			ArmorPenetration: 84,
+		},
+		Gems: eq.GemSlots{
+			SlotColors: []eq.GemColor{eq.MetaGem, eq.RedGem},
+		},
+	}
 }

@@ -20,7 +20,11 @@ type timerModifier struct {
 	// Trinkets
 	DST             float64
 	BloodlustBrooch float64
+	BerserkersCall  float64
 	Madness         float64
+
+	// Rings
+	BandOfTheEternalChampion float64
 }
 
 type ActiveModifiers struct {

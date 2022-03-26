@@ -190,3 +190,12 @@ func (eq Equipment) HasT6FourSet() bool {
 	}
 	return numPieces >= 4
 }
+
+func (eq Equipment) HasTrinket(trinketName string) bool {
+	return eq.TrinketOne.Name == trinketName || eq.TrinketTwo.Name == trinketName
+}
+
+func (eq Equipment) HasRing(ringName string) bool {
+	return eq.RingOne.Name == ringName || eq.RingTwo.Name == ringName
+
+}

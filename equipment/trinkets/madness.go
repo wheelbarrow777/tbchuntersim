@@ -42,7 +42,6 @@ func (madness *MadnessOfTheBetrayer) CalcCooldown(p *player.Player, opts *abilit
 		procChance := p.Equipment.Ranged.Speed * madness.procPerMinute / 60
 		if util.RollDice(procChance) {
 			madness.procced = true
-
 		}
 	}
 

@@ -72,4 +72,28 @@ func initCloaks() {
 			},
 		},
 	}
+
+	cloaks["drape of the dark reavers"] = eq.ArmorItem{
+		Name: "drape of the dark reavers",
+		BaseStats: eq.BaseStats{
+			Armor:       97,
+			Agility:     24,
+			Stamina:     21,
+			HitRating:   17,
+			AttackPower: 34,
+		},
+		Gems:    eq.GemSlots{},
+		Enchant: eq.Enchant{},
+	}
+
+	cloaks["shadowmoon destroyer's drape"] = eq.ArmorItem{
+		Name: "shadowmoon destroyer's drape",
+		BaseStats: eq.BaseStats{
+			Stamina:     24,
+			HitRating:   17,
+			CritRating:  24,
+			AttackPower: 72,
+			Armor:       118,
+		},
+	}
 }

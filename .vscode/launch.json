@@ -17,7 +17,7 @@
                 "--log-level",
                 "DEBUG",
                 "-f",
-                "presets/wip.json"
+                "presets/p4_bm_dw_bis.json"
             ]
         },
         {

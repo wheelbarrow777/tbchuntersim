@@ -51,4 +51,11 @@ func initTrinkets() {
 			AttackPower: 84,
 		},
 	}
+
+	trinkets["berserker's call"] = eq.ArmorItem{
+		Name: "berserker's call",
+		BaseStats: eq.BaseStats{
+			AttackPower: 90,
+		},
+	}
 }
